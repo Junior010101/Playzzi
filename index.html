@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/fonts.css" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components/button.css" />
     <link rel="stylesheet" href="./css/components/header.css" />
     <link rel="stylesheet" href="./css/pages/start/hero.css" />
     <link rel="stylesheet" href="./css/pages/start/podium.css" />
@@ -149,8 +150,8 @@
           </div>
 
           <div class="hero__btn-group">
-            <a href="#previa" class="hero__btn hero__btn--primary">Entrar</a>
-            <a href="#proposta" class="hero__btn hero__btn--secondary">
+            <a href="#previa" class="button hero__btn--primary">Entrar</a>
+            <a href="#proposta" class="button hero__btn--secondary">
               Ainda não tenho conta
             </a>
           </div>
@@ -171,14 +172,17 @@
             />
           </div>
           <div class="podium__content">
-            <h2 class="podium__title">
+            <h2
+              class="podium__title"
+              data-text="Desafiador, dinâmico e envolvente."
+            >
               Desafiador, dinâmico<br />e envolvente.
             </h2>
             <p class="podium__text">
               Aqui, você pode explorar o universo da tecnologia por meio de
               quizes, atividades e experiências que estimulam o raciocínio
-              lógico, a criatividade e a resolução de problemas. Nosso
-              objetivo é tornar o seu conhecimento em tecnologia de forma mais
+              lógico, a criatividade e a resolução de problemas. Nosso objetivo
+              é tornar o seu conhecimento em tecnologia de forma mais
               construtiva e interessante, ajudando você a desenvolver novas
               habilidades enquanto descobre e aprende no seu próprio ritmo.
             </p>
@@ -197,28 +201,30 @@
             width="420"
             height="483"
           />
-          <h2 class="time__title">Otimize seu tempo.</h2>
+          <h2 class="time__title" data-text="Otimize seu tempo.">
+            Otimize seu tempo.
+          </h2>
         </div>
 
         <div class="time__cards-section">
           <div class="time__cards">
-            <article class="time__card">
+            <article class="time__card time__card--first">
               <p class="time__card-text">
                 Explore, Evolua, e tenha o domínio sobre o seu conhecimento em
                 tecnologia!!
               </p>
             </article>
-            <article class="time__card">
+            <article class="time__card time__card--second">
               <p class="time__card-text">
                 No Playzzi, cada novo conhecimento é uma oportunidade para
                 experimentar, superar desafios e desenvolver seu potencial.
               </p>
             </article>
-            <article class="time__card">
+            <article class="time__card time__card--third">
               <p class="time__card-text">
-                Queremos incentivar você a aprender de maneira prática,
-                explorar novas ideias e descobrir que a tecnologia pode ser
-                muito mais do que código.
+                Queremos incentivar você a aprender de maneira prática, explorar
+                novas ideias e descobrir que a tecnologia pode ser muito mais do
+                que código.
               </p>
             </article>
           </div>
@@ -256,37 +262,16 @@
               <fieldset class="quiz__options">
                 <legend class="quiz__sr-only">Opções de resposta</legend>
 
-                <label class="quiz__option quiz__option--selected">
-                  <input
-                    type="radio"
-                    name="quiz-answer"
-                    class="quiz__radio"
-                    checked
-                  />
-                  <span class="quiz__option-indicator">
-                    <svg
-                      class="quiz__check-icon"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
+                <label class="quiz__option">
+                  <input type="radio" name="quiz-answer" class="quiz__radio" />
+                  <span class="quiz__option-indicator"> </span>
                   <span class="quiz__option-text">
                     Aprender com quizzes e desafios, no seu próprio ritmo.
                   </span>
                 </label>
 
                 <label class="quiz__option">
-                  <input
-                    type="radio"
-                    name="quiz-answer"
-                    class="quiz__radio"
-                  />
+                  <input type="radio" name="quiz-answer" class="quiz__radio" />
                   <span class="quiz__option-indicator"></span>
                   <span class="quiz__option-text">
                     Decorar conceitos sem colocar o conhecimento em prática.
@@ -294,11 +279,7 @@
                 </label>
 
                 <label class="quiz__option">
-                  <input
-                    type="radio"
-                    name="quiz-answer"
-                    class="quiz__radio"
-                  />
+                  <input type="radio" name="quiz-answer" class="quiz__radio" />
                   <span class="quiz__option-indicator"></span>
                   <span class="quiz__option-text">
                     Estudar apenas programação, sem explorar outras áreas.
@@ -306,11 +287,7 @@
                 </label>
 
                 <label class="quiz__option">
-                  <input
-                    type="radio"
-                    name="quiz-answer"
-                    class="quiz__radio"
-                  />
+                  <input type="radio" name="quiz-answer" class="quiz__radio" />
                   <span class="quiz__option-indicator"></span>
                   <span class="quiz__option-text">
                     Seguir um ritmo único, sem espaço para novas descobertas.
@@ -385,8 +362,8 @@
               <div class="cta__accordion-body">
                 <p>
                   Não! O Playzzi foi desenvolvido especialmente para quem está
-                  dando os primeiros passos. Nossas trilhas começam do zero,
-                  com desafios graduais e explicações simples e intuitivas.
+                  dando os primeiros passos. Nossas trilhas começam do zero, com
+                  desafios graduais e explicações simples e intuitivas.
                 </p>
               </div>
             </details>
@@ -430,7 +407,6 @@
         </div>
       </div>
     </footer>
-
-    <script src="./js/main.js"></script>
+    <script defer src="./js/main.js"></script>
   </body>
 </html>

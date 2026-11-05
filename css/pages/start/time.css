@@ -1,22 +1,24 @@
 /* 
- * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
- * Seção Tempo ("Otimize seu tempo.")
+- Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+- Usar classes CSS para toda e qualquer estilização.
+- Usar block__element para elementos filhos do componente principal.
+- Usar block--modifier (ou block__element--modifier) para variações. 
  */
-
 /* Block */
 .time {
   position: relative;
+  bottom: -2px;
   background-color: var(--branco);
 }
 
-/* Header with Clock */
+/* Element */
 .time__header {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-inline: 20px;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   text-align: center;
 }
 
@@ -28,46 +30,73 @@
 }
 
 .time__title {
+  position: relative;
   font-family: var(--font-titles);
   font-size: 2.15rem;
   font-weight: 700;
   line-height: 1.15;
   margin-top: 20px;
-  color: #fed47a;
+  color: #fff98e;
   paint-order: stroke fill;
   -webkit-text-stroke: 3px #4a759c;
-  text-shadow: 0 3px 0 rgba(74, 117, 156, 0.25);
+  z-index: 2;
 }
 
-/* Cards Section with Angled Top */
+.time__title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background-clip: text;
+  background: linear-gradient(180deg, #ff9236 32%, #fff98e 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0px transparent;
+  z-index: 1;
+}
+
 .time__cards-section {
   position: relative;
-  background-color: var(--laranja-fundo);
-  clip-path: polygon(0 60px, 100% 0, 100% 100%, 0 100%);
-  padding-inline: 20px;
-  padding-top: 100px;
+  background-color: transparent;
+  clip-path: none;
+  padding-top: 40px;
   padding-bottom: 60px;
-  margin-top: -30px;
+}
+
+.time__cards-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--laranja-fundo);
+  clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
 }
 
 .time__cards {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 24px;
   max-width: 380px;
   margin: 0 auto;
+  top: 0;
 }
 
 .time__card {
-  background-color: var(--laranja-card);
-  padding: 36px 24px;
-  min-height: 220px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  background-color: var(--laranja-card);
+  clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0 100%);
+  padding: 30px 20px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .time__card:hover {
@@ -84,13 +113,18 @@
   text-align: center;
 }
 
-/* =========================================
-   Media Query: Desktop (> 820px)
-   ========================================= */
+/* Modifier */
+.time__card--first,
+.time__card--second,
+.time__card--third {
+  top: 0;
+}
+
+/* Media query */
 @media screen and (min-width: 820px) {
   .time__header {
     padding-top: 70px;
-    padding-bottom: 60px;
+    padding-bottom: 150px;
   }
 
   .time__clock {
@@ -104,11 +138,15 @@
   }
 
   .time__cards-section {
-    clip-path: polygon(0 80px, 100% 0, 100% 100%, 0 100%);
     padding-inline: 100px;
     padding-top: 130px;
     padding-bottom: 80px;
     margin-top: -40px;
+    clip-path: none;
+  }
+
+  .time__cards-section::before {
+    clip-path: polygon(0 60px, 100% 0, 100% 100%, 0 100%);
   }
 
   .time__cards {
@@ -116,15 +154,27 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     max-width: 1240px;
+    top: -150px;
   }
 
   .time__card {
     min-height: 250px;
     padding: 40px 30px;
+    clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
   }
 
   .time__card-text {
     font-size: 1.125rem;
     line-height: 1.55;
+  }
+
+  .time__card--first {
+    top: -50px;
+  }
+  .time__card--second {
+    top: -60px;
+  }
+  .time__card--third {
+    top: -70px;
   }
 }

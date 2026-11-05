@@ -5,14 +5,13 @@
  * - Usar block--modifier (ou block__element--modifier) para variações. 
  */
 
-/* Main wrapper */
+/* Block */
 .main {
   position: relative;
   padding-top: 75px;
   overflow-x: hidden;
 }
 
-/* Block */
 .hero {
   position: relative;
   background-image: url("../../../assets/images/bg-image.jpg");
@@ -24,7 +23,7 @@
   padding-inline: 20px;
   padding-top: 30px;
   padding-bottom: 50px;
-  min-height: 620px;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,11 +59,13 @@
   position: relative;
   z-index: 10;
   width: 100%;
+  gap: 60px;
   max-width: 1240px;
 }
 
 .hero__header {
   padding-top: 10px;
+  z-index: 10;
   margin: 0 auto 20px auto;
 }
 
@@ -86,7 +87,6 @@
   -webkit-text-stroke: 4px rgba(55, 85, 119, 0.9);
   text-align: center;
   line-height: 1.1;
-  text-shadow: 0 4px 0 rgba(55, 85, 119, 0.35);
 }
 
 .hero__title::before {
@@ -96,12 +96,13 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #ff9236 32%, #fff98e 65%);
+
+  background-clip: text;
+  background: linear-gradient(180deg, #ff9236 32%, #fff98e 60%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0px transparent;
   z-index: 1;
-  pointer-events: none;
 }
 
 .hero__slogan {
@@ -124,19 +125,6 @@
   height: auto;
 }
 
-.hero__spark--left {
-  top: -15px;
-  left: -50px;
-  transform: rotate(155deg);
-}
-
-.hero__spark--right {
-  bottom: -40px;
-  right: -40px;
-  transform: rotate(-25deg);
-}
-
-/* Polaroid Photos */
 .hero__photos {
   position: relative;
   width: 320px;
@@ -151,32 +139,24 @@
   height: 185px;
   filter: drop-shadow(0 6px 16px rgba(55, 85, 119, 0.2));
   transition: transform 0.3s ease;
+
+  animation: flutuar 3.5s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
 }
 
 .hero__photo:hover {
-  transform: scale(1.05) translateY(-5px) !important;
-  z-index: 10 !important;
-}
-
-.hero__photo--first {
-  top: 30px;
-  left: 10px;
-  z-index: 1;
-  transform: rotate(0deg);
-}
-
-.hero__photo--second {
-  top: 45px;
-  left: 85px;
-  z-index: 2;
-  transform: rotate(-8deg);
-}
-
-.hero__photo--third {
-  top: 15px;
-  left: 160px;
-  z-index: 3;
-  transform: rotate(20deg);
+  animation-play-state: paused;
+  transform: rotate(0deg) scale(1.05) !important;
+  translate: 0 -5px;
 }
 
 .hero__photo-img {
@@ -202,7 +182,6 @@
   user-select: none;
 }
 
-/* Button Group */
 .hero__btn-group {
   display: flex;
   flex-direction: column;
@@ -214,39 +193,59 @@
   z-index: 10;
 }
 
-.hero__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 48px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  background-color: var(--laranja-primario);
-  color: var(--branco);
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(255, 144, 50, 0.25);
-  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+/* Modifier */
+.hero__spark--left {
+  top: -15px;
+  left: -50px;
+  transform: rotate(155deg);
 }
 
-.hero__btn:hover {
-  background-color: var(--laranja-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(255, 144, 50, 0.35);
+.hero__spark--right {
+  bottom: -40px;
+  right: -40px;
+  transform: rotate(-25deg);
 }
 
-.hero__btn:active {
-  transform: translateY(0);
+.hero__photo--first {
+  top: 30px;
+  left: -20px;
+  --rot: 0deg;
+  transform: rotate(var(--rot));
+  animation-duration: 3.2s;
+  animation-delay: 0s;
+  z-index: 1;
 }
 
-/* =========================================
-   Media Query: Desktop (> 820px)
-   ========================================= */
+.hero__photo--second {
+  top: 45px;
+  left: 85px;
+  --rot: -8deg;
+  transform: rotate(var(--rot));
+  animation-duration: 3.8s;
+  animation-delay: -1.2s;
+  z-index: 2;
+}
+
+.hero__photo--third {
+  top: 15px;
+  right: -20px;
+  --rot: -20deg;
+  transform: rotate(var(--rot));
+  animation-duration: 4.3s;
+  animation-delay: -2.5s;
+  z-index: 3;
+}
+
+.hero__btn--primary,
+.hero__btn--secondary {
+  --button-shadow-color: var(--laranja-fundo);
+  --button-background-color: var(--laranja-primario);
+  --button-text-color: var(--branco);
+  --button-border-color: var(--laranja-fundo);
+  --button-background-hover: var(--laranja-hover);
+}
+
+/* Media query */
 @media screen and (min-width: 820px) {
   .main {
     padding-top: 100px;
@@ -276,7 +275,6 @@
     min-height: 580px;
   }
 
-  /* Header & Title in Desktop: Top-Right */
   .hero__header {
     position: absolute;
     top: 20px;
@@ -310,13 +308,12 @@
     right: -55px;
   }
 
-  /* Photos in Desktop: Center-Left fanned out */
   .hero__photos {
     position: absolute;
     top: 50px;
-    left: 40px;
     width: 760px;
     height: 380px;
+    transform: translateX(calc(50% - 200px));
     margin: 0;
   }
 
@@ -328,22 +325,19 @@
   .hero__photo--first {
     top: 40px;
     left: 20px;
-    transform: rotate(0deg);
+    --rot: 0deg;
   }
-
   .hero__photo--second {
     top: 70px;
     left: 230px;
-    transform: rotate(-7deg);
+    --rot: -7deg;
   }
-
   .hero__photo--third {
-    top: 25px;
-    left: 440px;
-    transform: rotate(25deg);
+    top: 80px;
+    left: 460px;
+    --rot: -25deg;
   }
 
-  /* Buttons in Desktop: Left side, below Photo 1 and 2 */
   .hero__btn-group {
     position: absolute;
     top: 420px;
@@ -352,10 +346,5 @@
     max-width: 380px;
     margin: 0;
     gap: 14px;
-  }
-
-  .hero__btn {
-    height: 52px;
-    font-size: 1.125rem;
   }
 }

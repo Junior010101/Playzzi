@@ -9,6 +9,7 @@
   background-color: var(--laranja-fundo);
   padding-inline: 20px;
   padding-block: 40px 70px;
+  bottom: -1px;
 }
 
 /* Container */
@@ -73,7 +74,11 @@
   left: 0;
   right: 0;
   height: 6px;
-  background-image: radial-gradient(circle at 10px -2px, var(--laranja-fundo) 5px, transparent 5.5px);
+  background-image: radial-gradient(
+    circle at 10px -2px,
+    var(--laranja-fundo) 5px,
+    transparent 5.5px
+  );
   background-size: 20px 6px;
   background-repeat: repeat-x;
   pointer-events: none;
@@ -121,7 +126,10 @@
   border: 1.5px solid var(--cinza-borda);
   background-color: var(--branco);
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.15s ease;
   user-select: none;
 }
 
@@ -138,6 +146,21 @@
 .quiz__option--selected:hover {
   background-color: var(--verde-fundo);
   border-color: var(--verde-borda);
+}
+
+/* Estilo para quando a resposta selecionada for incorreta */
+.quiz__option--incorrect {
+  border-color: #ea4335 !important;
+  background-color: #fce8e6 !important;
+}
+
+.quiz__option--incorrect .quiz__option-indicator {
+  border-color: #ea4335 !important;
+  background-color: #ea4335 !important;
+}
+
+.quiz__option--incorrect .quiz__option-text {
+  color: #5c1d1a !important;
 }
 
 .quiz__radio {
@@ -218,7 +241,10 @@
   font-size: 0.9375rem;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(255, 144, 50, 0.25);
-  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .quiz__btn-next:hover {
@@ -260,7 +286,11 @@
 
   .quiz__card::before {
     height: 8px;
-    background-image: radial-gradient(circle at 12px -2px, var(--laranja-fundo) 6px, transparent 6.5px);
+    background-image: radial-gradient(
+      circle at 12px -2px,
+      var(--laranja-fundo) 6px,
+      transparent 6.5px
+    );
     background-size: 24px 8px;
   }
 

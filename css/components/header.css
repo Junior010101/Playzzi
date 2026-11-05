@@ -20,15 +20,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* Modifier */
-.header--start {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-}
-
 /* Element */
 .header__icon {
   display: flex;
@@ -63,29 +54,21 @@
 .header__link {
   text-decoration: none;
   color: var(--dark-blue);
-  font-size: 1rem;
   padding: 6px 4px;
   position: relative;
-  transition: color 0.2s ease;
-}
-
-.header__link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--laranja-primario);
-  transition: width 0.2s ease;
 }
 
 .header__link:hover {
   color: var(--laranja-primario);
 }
 
-.header__link:hover::after {
-  width: 100%;
+/* Modifier */
+.header--start {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
 
 /* Media query para Desktop */
