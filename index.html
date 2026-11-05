@@ -16,14 +16,14 @@
     />
     <link
       rel="preload"
-      href="/assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+      href="./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
       as="font"
       type="font/ttf"
       crossorigin="anonymous"
     />
     <link
       rel="preload"
-      href="/assets/fonts/ComicNeue-Bold.ttf"
+      href="./assets/fonts/ComicNeue-Bold.ttf"
       as="font"
       type="font/ttf"
       crossorigin="anonymous"
@@ -32,9 +32,10 @@
     <link rel="stylesheet" href="./css/fonts.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/pages/start/hero.css" />
   </head>
   <body>
-    <header class="header">
+    <header class="header header--start">
       <a class="header__icon" href="#" title="Voltar ao topo">
         <img
           class="header__icon-image"
@@ -57,7 +58,90 @@
         </ul>
       </nav>
     </header>
-    <main class="main"></main>
+    <main class="main">
+      <section class="section hero">
+        <div class="hero__container">
+          <img
+            src="./assets/images/Vetor.svg"
+            aria-hidden="true"
+            alt=""
+            class="hero__vector"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <article class="hero__content">
+          <header class="hero__header">
+            <hgroup class="hero__hgroup">
+              <h1 class="hero__title" data-text="Bora Jogar!">Bora Jogar!</h1>
+              <h2 class="hero__slogan">Divirta-se. Questione. Evolua.</h2>
+
+              <img
+                src="./assets/images/spark.svg"
+                aria-hidden="true"
+                alt=""
+                class="hero__spark hero__spark--left"
+                loading="eager"
+                fetchpriority="high"
+              />
+              <img
+                src="./assets/images/spark.svg"
+                aria-hidden="true"
+                alt=""
+                class="hero__spark hero__spark--right"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </hgroup>
+          </header>
+          <div class="hero__photos">
+            <article class="hero__photo">
+              <img
+                src="./assets/images/No_Image_Available.jpg"
+                alt="Descrição da foto"
+                class="hero__photo-img"
+              />
+
+              <img
+                src="./assets/images/photo-card.svg"
+                alt=""
+                class="hero__photo-frame"
+              />
+            </article>
+            <article class="hero__photo">
+              <img
+                src="./assets/images/No_Image_Available.jpg"
+                alt="Descrição da foto"
+                class="hero__photo-img"
+              />
+
+              <img
+                src="./assets/images/photo-card.svg"
+                alt=""
+                class="hero__photo-frame"
+              />
+            </article>
+            <article class="hero__photo">
+              <img
+                src="./assets/images/No_Image_Available.jpg"
+                alt="Descrição da foto"
+                class="hero__photo-img"
+              />
+
+              <img
+                src="./assets/images/photo-card.svg"
+                alt=""
+                class="hero__photo-frame"
+              />
+            </article>
+          </div>
+          <div class="hero__btn-group">
+            <button></button>
+            <button></button>
+          </div>
+        </article>
+      </section>
+    </main>
     <footer class="footer"></footer>
   </body>
 </html>

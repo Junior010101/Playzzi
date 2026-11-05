@@ -1,0 +1,198 @@
+/* 
+ * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+ * - Usar classes CSS para toda e qualquer estilização.
+ * - Usar block__element para elementos filhos do componente principal.
+ * - Usar block--modifier (ou block__element--modifier) para variações. 
+ */
+/* Block */
+.main {
+  position: relative;
+  top: 100px;
+  min-height: 89vh;
+
+  background-image: url("../../../assets/images/bg-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+.section {
+  padding-inline: 100px;
+}
+
+/* .hero {} */
+
+/* Element */
+/* .hero__container {} */
+
+.hero__vector {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(2.2);
+  transform-origin: bottom center;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+
+.hero__header {
+  padding-top: 50px;
+  margin-left: auto;
+}
+
+.hero__hgroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  max-width: 400px;
+}
+
+.hero__title {
+  position: relative;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 4px rgba(55, 85, 119, 0.8);
+  min-width: 220px;
+}
+
+.hero__title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background-clip: text;
+  background: linear-gradient(180deg, #ff9236 32%, #fff98e 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0px transparent;
+  z-index: 1;
+}
+
+.hero__slogan {
+  color: #f9bf38;
+  font-size: 24px;
+  min-width: 300px;
+  transform: rotate(5deg);
+}
+
+.hero__spark {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 5;
+  width: 120px;
+  height: auto;
+}
+
+/* Modifier */
+.hero__spark--left {
+  top: 0;
+  left: -80px;
+  transform: rotate(155deg);
+}
+
+.hero__spark--right {
+  bottom: -60px;
+  right: -50px;
+  transform: rotate(-25deg);
+}
+
+.hero__photos {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  margin-top: 10px;
+}
+
+.hero__photo {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 350px;
+}
+
+.hero__photo:first-child {
+  left: 10px;
+}
+
+.hero__photo:not(:first-child):not(:last-child) {
+  top: 50px;
+  left: 30px;
+  z-index: 2;
+  transform: rotate(-7deg);
+}
+
+.hero__photo:last-child {
+  top: 10px;
+  left: 50px;
+  z-index: 3;
+  transform: rotate3d(-1, -1, -1, 25deg) translateZ(50px);
+}
+
+.hero__photo-img {
+  position: absolute;
+  top: 5%;
+  left: 6%;
+  width: 111.09px;
+  height: 128.94px;
+  object-fit: cover;
+  z-index: 1;
+  scale: 0.5;
+}
+
+.hero__photo-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 120px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+  user-select: none;
+}
+
+/* Media query */
+@media screen and (min-width: 820px) {
+  .main {
+    height: 100vh;
+  }
+
+  .hero__vector {
+    width: 100%;
+    transform: none;
+    left: 0;
+    bottom: 0;
+  }
+
+  .hero__slogan {
+    font-size: var(--fs-h2);
+  }
+
+  .hero__photo:not(:first-child):not(:last-child) {
+    left: -30px;
+  }
+  .hero__photo:last-child {
+    top: 30px;
+    left: -50px;
+  }
+}

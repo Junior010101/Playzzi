@@ -17,12 +17,6 @@
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 5px;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
 }
 
 /* Element */
@@ -50,6 +44,13 @@
 }
 
 /* Modifier */
+.header--start {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
 
 /* Media query */
 @media screen and (min-width: 820px) {
