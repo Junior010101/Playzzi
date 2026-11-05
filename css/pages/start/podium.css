@@ -1,0 +1,108 @@
+/* 
+ * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+ * Seção Pódio ("Desafiador, dinâmico e envolvente.")
+ */
+
+/* Block */
+.podium {
+  position: relative;
+  background-color: var(--branco);
+  padding-inline: 20px;
+  padding-block: 60px 40px;
+  overflow: hidden;
+}
+
+/* Element */
+.podium__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.podium__graphic {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  justify-content: center;
+}
+
+.podium__image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.podium__content {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.podium__title {
+  font-family: var(--font-titles);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: #fed47a;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 3px #4a759c;
+  text-shadow: 0 3px 0 rgba(74, 117, 156, 0.25);
+}
+
+.podium__text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+/* =========================================
+   Media Query: Desktop (> 820px)
+   ========================================= */
+@media screen and (min-width: 820px) {
+  .podium {
+    padding-inline: 100px;
+    padding-block: 90px 70px;
+  }
+
+  .podium__wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  .podium__graphic {
+    max-width: 580px;
+    flex: 1 1 50%;
+  }
+
+  .podium__content {
+    flex: 1 1 50%;
+    margin-top: 0;
+    text-align: right;
+  }
+
+  .podium__title {
+    font-size: 2.75rem;
+    line-height: 1.15;
+    margin-bottom: 28px;
+    -webkit-text-stroke: 3.5px #4a759c;
+  }
+
+  .podium__text {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.65;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+    max-width: 520px;
+  }
+}

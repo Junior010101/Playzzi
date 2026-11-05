@@ -1,0 +1,130 @@
+/* 
+ * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+ * Seção Tempo ("Otimize seu tempo.")
+ */
+
+/* Block */
+.time {
+  position: relative;
+  background-color: var(--branco);
+}
+
+/* Header with Clock */
+.time__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.time__clock {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.06));
+}
+
+.time__title {
+  font-family: var(--font-titles);
+  font-size: 2.15rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 20px;
+  color: #fed47a;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 3px #4a759c;
+  text-shadow: 0 3px 0 rgba(74, 117, 156, 0.25);
+}
+
+/* Cards Section with Angled Top */
+.time__cards-section {
+  position: relative;
+  background-color: var(--laranja-fundo);
+  clip-path: polygon(0 60px, 100% 0, 100% 100%, 0 100%);
+  padding-inline: 20px;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  margin-top: -30px;
+}
+
+.time__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.time__card {
+  background-color: var(--laranja-card);
+  padding: 36px 24px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.time__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.time__card-text {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--branco);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* =========================================
+   Media Query: Desktop (> 820px)
+   ========================================= */
+@media screen and (min-width: 820px) {
+  .time__header {
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+
+  .time__clock {
+    width: 320px;
+  }
+
+  .time__title {
+    font-size: 2.75rem;
+    -webkit-text-stroke: 3.5px #4a759c;
+    margin-top: 24px;
+  }
+
+  .time__cards-section {
+    clip-path: polygon(0 80px, 100% 0, 100% 100%, 0 100%);
+    padding-inline: 100px;
+    padding-top: 130px;
+    padding-bottom: 80px;
+    margin-top: -40px;
+  }
+
+  .time__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1240px;
+  }
+
+  .time__card {
+    min-height: 250px;
+    padding: 40px 30px;
+  }
+
+  .time__card-text {
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+}

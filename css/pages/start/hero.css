@@ -4,53 +4,68 @@
  * - Usar block__element para elementos filhos do componente principal.
  * - Usar block--modifier (ou block__element--modifier) para variações. 
  */
-/* Block */
+
+/* Main wrapper */
 .main {
   position: relative;
-  top: 100px;
-  min-height: 89vh;
+  padding-top: 75px;
+  overflow-x: hidden;
+}
 
+/* Block */
+.hero {
+  position: relative;
   background-image: url("../../../assets/images/bg-image.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  image-rendering: pixelated;
+  background-repeat: repeat;
+  image-rendering: auto;
   overflow: hidden;
+  padding-inline: 20px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.section {
-  padding-inline: 100px;
-}
-
-/* .hero {} */
 
 /* Element */
-/* .hero__container {} */
+.hero__container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
 
 .hero__vector {
   display: block;
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%) scale(2.2);
+  transform: translateX(-50%) scale(2);
   transform-origin: bottom center;
   width: 100%;
+  min-width: 600px;
   height: auto;
-  z-index: 0;
-  pointer-events: none;
+  opacity: 0.9;
   user-select: none;
 }
 
 .hero__content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   z-index: 10;
+  width: 100%;
+  max-width: 1240px;
 }
 
 .hero__header {
-  padding-top: 50px;
-  margin-left: auto;
+  padding-top: 10px;
+  margin: 0 auto 20px auto;
 }
 
 .hero__hgroup {
@@ -58,14 +73,20 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  max-width: 400px;
+  width: max-content;
 }
 
 .hero__title {
   position: relative;
+  font-family: var(--font-titles);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #fff98e;
   paint-order: stroke fill;
-  -webkit-text-stroke: 4px rgba(55, 85, 119, 0.8);
-  min-width: 220px;
+  -webkit-text-stroke: 4px rgba(55, 85, 119, 0.9);
+  text-align: center;
+  line-height: 1.1;
+  text-shadow: 0 4px 0 rgba(55, 85, 119, 0.35);
 }
 
 .hero__title::before {
@@ -75,20 +96,23 @@
   top: 0;
   width: 100%;
   height: 100%;
-
-  background-clip: text;
-  background: linear-gradient(180deg, #ff9236 32%, #fff98e 60%);
+  background: linear-gradient(180deg, #ff9236 32%, #fff98e 65%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0px transparent;
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero__slogan {
   color: #f9bf38;
-  font-size: 24px;
-  min-width: 300px;
+  font-family: var(--font-titles);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 4px;
   transform: rotate(5deg);
+  text-shadow: 1px 1px 0 rgba(55, 85, 119, 0.4);
 }
 
 .hero__spark {
@@ -96,73 +120,80 @@
   pointer-events: none;
   user-select: none;
   z-index: 5;
-  width: 120px;
+  width: 80px;
   height: auto;
 }
 
-/* Modifier */
 .hero__spark--left {
-  top: 0;
-  left: -80px;
+  top: -15px;
+  left: -50px;
   transform: rotate(155deg);
 }
 
 .hero__spark--right {
-  bottom: -60px;
-  right: -50px;
+  bottom: -40px;
+  right: -40px;
   transform: rotate(-25deg);
 }
 
+/* Polaroid Photos */
 .hero__photos {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
   position: relative;
-  z-index: 10;
-  margin-top: 10px;
+  width: 320px;
+  height: 250px;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 .hero__photo {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  height: 350px;
+  position: absolute;
+  width: 155px;
+  height: 185px;
+  filter: drop-shadow(0 6px 16px rgba(55, 85, 119, 0.2));
+  transition: transform 0.3s ease;
 }
 
-.hero__photo:first-child {
+.hero__photo:hover {
+  transform: scale(1.05) translateY(-5px) !important;
+  z-index: 10 !important;
+}
+
+.hero__photo--first {
+  top: 30px;
   left: 10px;
+  z-index: 1;
+  transform: rotate(0deg);
 }
 
-.hero__photo:not(:first-child):not(:last-child) {
-  top: 50px;
-  left: 30px;
+.hero__photo--second {
+  top: 45px;
+  left: 85px;
   z-index: 2;
-  transform: rotate(-7deg);
+  transform: rotate(-8deg);
 }
 
-.hero__photo:last-child {
-  top: 10px;
-  left: 50px;
+.hero__photo--third {
+  top: 15px;
+  left: 160px;
   z-index: 3;
-  transform: rotate3d(-1, -1, -1, 25deg) translateZ(50px);
+  transform: rotate(20deg);
 }
 
 .hero__photo-img {
   position: absolute;
-  top: 5%;
-  left: 6%;
-  width: 111.09px;
-  height: 128.94px;
+  top: 7%;
+  left: 7.4%;
+  width: 84.4%;
+  height: 66.8%;
   object-fit: cover;
   z-index: 1;
-  scale: 0.5;
+  background-color: #f0f0f0;
 }
 
 .hero__photo-frame {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 120px;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -171,28 +202,160 @@
   user-select: none;
 }
 
-/* Media query */
+/* Button Group */
+.hero__btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 340px;
+  margin: 10px auto 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.hero__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--laranja-primario);
+  color: var(--branco);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 144, 50, 0.25);
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero__btn:hover {
+  background-color: var(--laranja-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 144, 50, 0.35);
+}
+
+.hero__btn:active {
+  transform: translateY(0);
+}
+
+/* =========================================
+   Media Query: Desktop (> 820px)
+   ========================================= */
 @media screen and (min-width: 820px) {
   .main {
-    height: 100vh;
+    padding-top: 100px;
+  }
+
+  .hero {
+    padding-inline: 100px;
+    padding-top: 50px;
+    padding-bottom: 70px;
+    min-height: 720px;
+    height: 760px;
+    display: block;
   }
 
   .hero__vector {
-    width: 100%;
     transform: none;
     left: 0;
     bottom: 0;
+    min-width: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+
+  .hero__content {
+    display: block;
+    position: relative;
+    min-height: 580px;
+  }
+
+  /* Header & Title in Desktop: Top-Right */
+  .hero__header {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero__title {
+    font-size: 3.25rem;
+    -webkit-text-stroke: 5px rgba(55, 85, 119, 0.9);
+    min-width: 320px;
   }
 
   .hero__slogan {
-    font-size: var(--fs-h2);
+    font-size: 1.75rem;
+    margin-top: 8px;
   }
 
-  .hero__photo:not(:first-child):not(:last-child) {
-    left: -30px;
+  .hero__spark {
+    width: 120px;
   }
-  .hero__photo:last-child {
-    top: 30px;
-    left: -50px;
+
+  .hero__spark--left {
+    top: -20px;
+    left: -70px;
+  }
+
+  .hero__spark--right {
+    bottom: -60px;
+    right: -55px;
+  }
+
+  /* Photos in Desktop: Center-Left fanned out */
+  .hero__photos {
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    width: 760px;
+    height: 380px;
+    margin: 0;
+  }
+
+  .hero__photo {
+    width: 250px;
+    height: 300px;
+  }
+
+  .hero__photo--first {
+    top: 40px;
+    left: 20px;
+    transform: rotate(0deg);
+  }
+
+  .hero__photo--second {
+    top: 70px;
+    left: 230px;
+    transform: rotate(-7deg);
+  }
+
+  .hero__photo--third {
+    top: 25px;
+    left: 440px;
+    transform: rotate(25deg);
+  }
+
+  /* Buttons in Desktop: Left side, below Photo 1 and 2 */
+  .hero__btn-group {
+    position: absolute;
+    top: 420px;
+    left: 40px;
+    width: 380px;
+    max-width: 380px;
+    margin: 0;
+    gap: 14px;
+  }
+
+  .hero__btn {
+    height: 52px;
+    font-size: 1.125rem;
   }
 }
