@@ -43,6 +43,13 @@
 }
 
 /* Modifier */
+.button--primary {
+  --button-shadow-color: var(--laranja-fundo);
+  --button-background-color: var(--laranja-primario);
+  --button-text-color: var(--branco);
+  --button-border-color: var(--laranja-fundo);
+  --button-background-hover: var(--laranja-hover);
+}
 
 /* Element */
 

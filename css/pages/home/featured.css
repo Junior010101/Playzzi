@@ -1,0 +1,172 @@
+/* 
+- Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+- Usar classes CSS para toda e qualquer estilização.
+- Usar block__element para elementos filhos do componente principal.
+- Usar block--modifier (ou block__element--modifier) para variações. 
+ */
+/* Block */
+.featured {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.featured-card {
+  position: relative;
+  background:
+    url("../../../assets/images/mask-image.png"),
+    linear-gradient(
+      36deg,
+      #e0e0e0 0%,
+      #f5f5f5 25%,
+      #9e9e9e 50%,
+      #eeeeee 75%,
+      #757575 100%
+    );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 24px;
+  width: 360px;
+  height: 500px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: block;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+/* Element */
+.featured__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.featured__star {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.featured__title {
+  font-family: var(--font-titles);
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  line-height: 1.2;
+}
+
+.featured__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.featured-card__inner {
+  background-color: var(--azul-card-escuro);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-card__title {
+  font-family: var(--font-titles);
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  -webkit-text-stroke: 1px #000000;
+  letter-spacing: 0.3px;
+  z-index: 10;
+  margin: 0;
+}
+
+.featured-card__media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.featured-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover .featured-card__img {
+  transform: scale(1.03);
+}
+
+.featured-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  padding-top: 12px;
+  margin-top: auto;
+}
+
+.featured-card__description {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.featured-card__difficulty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.featured-card__difficulty-icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Media query */
+@media screen and (min-width: 820px) {
+  .featured__title {
+    font-size: 2.125rem;
+  }
+
+  .featured-card {
+    padding: 18px;
+  }
+
+  .featured-card__inner {
+    padding: 24px;
+  }
+}

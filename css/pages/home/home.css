@@ -1,0 +1,57 @@
+/* 
+ * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+ * Layout da Página Home
+ */
+
+/* Block */
+.home {
+  background-color: var(--cinza-bg-home);
+  min-height: calc(100vh - 75px);
+  padding: 24px 16px 80px;
+}
+
+/* Container */
+.home__container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* No mobile, 'Mais jogados' aparece antes de 'Descubra!' */
+.home__featured {
+  order: 1;
+}
+
+.home__discover {
+  order: 2;
+}
+
+/* =========================================
+   Media Query: Desktop (> 820px)
+   ========================================= */
+@media screen and (min-width: 820px) {
+  .home {
+    margin-left: 80px;
+    padding: 40px 50px 80px;
+    min-height: calc(100vh - 100px);
+  }
+
+  .home__container {
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* No desktop, 'Descubra!' fica na coluna esquerda e 'Mais jogados' na direita */
+  .home__discover {
+    order: 1;
+  }
+
+  .home__featured {
+    order: 2;
+  }
+}

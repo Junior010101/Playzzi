@@ -130,4 +130,25 @@
   .footer__copyright {
     font-size: 0.9375rem;
   }
+
+  .footer--home {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+
+  .footer--home .footer__bottom {
+    padding: 24px 40px;
+    justify-content: flex-start;
+  }
+}
+
+/* Modifier para a página Home */
+.footer--home {
+  background-color: var(--dark-blue);
+}
+
+.footer--home .footer__bottom {
+  background-color: var(--dark-blue);
+  padding: 20px;
+  justify-content: center;
 }

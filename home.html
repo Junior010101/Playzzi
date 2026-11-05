@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playzzi - Início</title>
+    <meta
+      name="description"
+      content="Playzzi - Site de Quiz educacional. Divirta-se. Questione. Evolua."
+    />
+    <meta name="theme-color" content="#375577" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link
+      rel="shortcut icon"
+      href="favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/ComicNeue-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components/button.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/components/sidebar.css" />
+    <link rel="stylesheet" href="./css/pages/home/home.css" />
+    <link rel="stylesheet" href="./css/pages/home/discover.css" />
+    <link rel="stylesheet" href="./css/pages/home/featured.css" />
+    <link rel="stylesheet" href="./css/components/footer.css" />
+  </head>
+  <body>
+    <!-- Barra de Navegação (Sidebar no desktop / Barra inferior no mobile) -->
+    <aside class="sidebar" aria-label="Navegação secundária">
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item">
+            <a
+              href="#"
+              class="sidebar__link sidebar__link--active"
+              title="Explorar"
+              aria-label="Explorar"
+            >
+              <img
+                src="./assets/icons/bulsola.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a
+              href="#"
+              class="sidebar__link"
+              title="Classificação"
+              aria-label="Classificação"
+            >
+              <img
+                src="./assets/icons/trofeu.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--bottom">
+            <a
+              href="#"
+              class="sidebar__link"
+              title="Configurações"
+              aria-label="Configurações"
+            >
+              <img
+                src="./assets/icons/config.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Cabeçalho -->
+    <header class="header header--home">
+      <a class="header__icon" href="#" title="Voltar ao topo">
+        <img
+          class="header__icon-image"
+          src="./assets/images/Logotipo.svg"
+          alt="Logotipo do Playzzi"
+          loading="eager"
+          fetchpriority="high"
+          width="116"
+          height="80"
+        />
+      </a>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="home">
+      <div class="home__container">
+        <!-- Seção: Descubra! -->
+        <section
+          class="discover home__discover"
+          aria-labelledby="discover-title"
+        >
+          <header class="discover__header">
+            <h1 class="discover__title" id="discover-title">Descubra!</h1>
+            <p class="discover__subtitle">
+              Encontre novos desafios e aprimore seus conhecimentos.
+            </p>
+          </header>
+
+          <div class="discover__filters">
+            <h2 class="discover__filter-title">Filtrar por área</h2>
+            <ul class="discover__filter-list" role="tablist">
+              <li class="discover__filter-item" role="presentation">
+                <button
+                  type="button"
+                  class="discover__filter-btn discover__filter-btn--all"
+                  role="tab"
+                  aria-selected="true"
+                >
+                  Todas
+                </button>
+              </li>
+              <li class="discover__filter-item" role="presentation">
+                <button
+                  type="button"
+                  class="discover__filter-btn discover__filter-btn--dev"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  Programação
+                </button>
+              </li>
+              <li class="discover__filter-item" role="presentation">
+                <button
+                  type="button"
+                  class="discover__filter-btn discover__filter-btn--design"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  Design
+                </button>
+              </li>
+              <li class="discover__filter-item" role="presentation">
+                <button
+                  type="button"
+                  class="discover__filter-btn discover__filter-btn--data"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  Dados
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="discover__grid">
+            <!-- Card 1 (Fácil) -->
+            <article class="quiz-card">
+              <div class="quiz-card__media">
+                <img
+                  src="./assets/images/No_Image_Available.jpg"
+                  alt="Ilustração do quiz de Algoritmos"
+                  class="quiz-card__img"
+                  loading="lazy"
+                />
+                <span class="quiz-card__tag">Algoritmos</span>
+              </div>
+              <div class="quiz-card__content">
+                <p class="quiz-card__description">
+                  Os algoritmos movem o mundo digital, mas será que você
+                  consegue prever como eles funcionam? Teste seus conhecimentos
+                  sobre estruturas de dados, eficiência, ordenação e lógica
+                  computacional neste quiz rápido e desafiador.
+                </p>
+                <div class="quiz-card__footer">
+                  <div
+                    class="quiz-card__difficulty"
+                    aria-label="Dificuldade: Fácil"
+                  >
+                    <img
+                      src="./assets/icons/ease.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/ease.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/ease.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                  </div>
+                  <a href="#" class="button button--primary quiz-card__btn">
+                    Jogar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2 (Médio-baixo) -->
+            <article class="quiz-card">
+              <div class="quiz-card__media">
+                <img
+                  src="./assets/images/No_Image_Available.jpg"
+                  alt="Ilustração do quiz de Algoritmos"
+                  class="quiz-card__img"
+                  loading="lazy"
+                />
+                <span class="quiz-card__tag">Algoritmos</span>
+              </div>
+              <div class="quiz-card__content">
+                <p class="quiz-card__description">
+                  Os algoritmos movem o mundo digital, mas será que você
+                  consegue prever como eles funcionam? Teste seus conhecimentos
+                  sobre estruturas de dados, eficiência, ordenação e lógica
+                  computacional neste quiz rápido e desafiador.
+                </p>
+                <div class="quiz-card__footer">
+                  <div
+                    class="quiz-card__difficulty"
+                    aria-label="Dificuldade: Média"
+                  >
+                    <img
+                      src="./assets/icons/ease.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/medium.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/medium.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                  </div>
+                  <a href="#" class="button button--primary quiz-card__btn">
+                    Jogar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3 (Médio-alto) -->
+            <article class="quiz-card">
+              <div class="quiz-card__media">
+                <img
+                  src="./assets/images/No_Image_Available.jpg"
+                  alt="Ilustração do quiz de Algoritmos"
+                  class="quiz-card__img"
+                  loading="lazy"
+                />
+                <span class="quiz-card__tag">Algoritmos</span>
+              </div>
+              <div class="quiz-card__content">
+                <p class="quiz-card__description">
+                  Os algoritmos movem o mundo digital, mas será que você
+                  consegue prever como eles funcionam? Teste seus conhecimentos
+                  sobre estruturas de dados, eficiência, ordenação e lógica
+                  computacional neste quiz rápido e desafiador.
+                </p>
+                <div class="quiz-card__footer">
+                  <div
+                    class="quiz-card__difficulty"
+                    aria-label="Dificuldade: Avançada"
+                  >
+                    <img
+                      src="./assets/icons/medium.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/medium.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/hard.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                  </div>
+                  <a href="#" class="button button--primary quiz-card__btn">
+                    Jogar
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4 (Difícil) -->
+            <article class="quiz-card">
+              <div class="quiz-card__media">
+                <img
+                  src="./assets/images/No_Image_Available.jpg"
+                  alt="Ilustração do quiz de Algoritmos"
+                  class="quiz-card__img"
+                  loading="lazy"
+                />
+                <span class="quiz-card__tag">Algoritmos</span>
+              </div>
+              <div class="quiz-card__content">
+                <p class="quiz-card__description">
+                  Os algoritmos movem o mundo digital, mas será que você
+                  consegue prever como eles funcionam? Teste seus conhecimentos
+                  sobre estruturas de dados, eficiência, ordenação e lógica
+                  computacional neste quiz rápido e desafiador.
+                </p>
+                <div class="quiz-card__footer">
+                  <div
+                    class="quiz-card__difficulty"
+                    aria-label="Dificuldade: Difícil"
+                  >
+                    <img
+                      src="./assets/icons/hard.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/hard.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/hard.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="quiz-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                  </div>
+                  <a href="#" class="button button--primary quiz-card__btn">
+                    Jogar
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Seção: Mais jogados -->
+        <aside class="featured home__featured" aria-labelledby="featured-title">
+          <header class="featured__header">
+            <img
+              src="./assets/icons/star.svg"
+              alt=""
+              aria-hidden="true"
+              class="featured__star"
+              width="32"
+              height="32"
+            />
+            <h2 class="featured__title" id="featured-title">Mais jogados</h2>
+          </header>
+
+          <div class="featured__list">
+            <!-- Card 1: Banco de Dados -->
+            <article class="featured-card">
+              <div class="featured-card__inner">
+                <h3 class="featured-card__title">Banco de Dados</h3>
+                <div class="featured-card__media">
+                  <img
+                    src="./assets/images/No_Image_Available.jpg"
+                    alt="Ilustração do quiz Banco de Dados"
+                    class="featured-card__img"
+                    loading="lazy"
+                  />
+                </div>
+
+                <!-- Novo container de rodapé para agrupar descrição e dificuldade com a linha divisória -->
+                <div class="featured-card__footer">
+                  <p class="featured-card__description">
+                    Descubra como as informações são armazenadas, organizadas e
+                    acessadas em sistemas digitais.
+                  </p>
+                  <div
+                    class="featured-card__difficulty"
+                    aria-label="Dificuldade: Intermediária"
+                  >
+                    <img
+                      src="./assets/icons/ease.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="featured-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/ease.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="featured-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/medium.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="featured-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Design de personagens -->
+            <article class="featured-card">
+              <div class="featured-card__inner">
+                <h3 class="featured-card__title">Design de personagens</h3>
+                <div class="featured-card__media">
+                  <img
+                    src="./assets/images/No_Image_Available.jpg"
+                    alt="Ilustração do quiz Design de personagens"
+                    class="featured-card__img"
+                    loading="lazy"
+                  />
+                </div>
+
+                <!-- Novo container de rodapé para agrupar descrição e dificuldade com a linha divisória -->
+                <div class="featured-card__footer">
+                  <p class="featured-card__description">
+                    Descubra se você domina os conceitos que dão vida aos
+                    grandes ícones dos jogos, das animações e dos quadrinhos!
+                  </p>
+                  <div
+                    class="featured-card__difficulty"
+                    aria-label="Dificuldade: Média"
+                  >
+                    <img
+                      src="./assets/icons/medium.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="featured-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/medium.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="featured-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                    <img
+                      src="./assets/icons/medium.svg"
+                      alt=""
+                      aria-hidden="true"
+                      class="featured-card__difficulty-icon"
+                      width="26"
+                      height="26"
+                    />
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer footer--home">
+      <div class="footer__bottom">
+        <div class="footer__bottom-inner">
+          <img
+            src="./assets/images/Logotipo.svg"
+            alt="Logotipo do Playzzi"
+            class="footer__logo"
+            loading="lazy"
+            width="85"
+            height="58"
+          />
+          <span class="footer__copyright">@2026 | Playzzi</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+/* 
+ * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+ * Seção Descubra! e Cards de Quiz
+ */
+
+/* Block: Discover */
+.discover {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Header */
+.discover__header {
+  margin-bottom: 24px;
+}
+
+.discover__title {
+  font-family: var(--font-titles);
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-bottom: 6px;
+}
+
+.discover__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--cinza-texto);
+  line-height: 1.45;
+}
+
+/* Filtros */
+.discover__filters {
+  margin-bottom: 28px;
+}
+
+.discover__filter-title {
+  font-family: var(--font-titles);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-bottom: 12px;
+}
+
+.discover__filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.discover__filter-item {
+  display: inline-flex;
+}
+
+.discover__filter-btn {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  text-decoration: none;
+  color: var(--branco);
+  transition:
+    filter 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.discover__filter-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.14);
+}
+
+.discover__filter-btn:active {
+  transform: translateY(0);
+}
+
+.discover__filter-btn--all {
+  background-color: var(--verde-filtro);
+}
+
+.discover__filter-btn--dev {
+  background-color: var(--dark-blue);
+}
+
+.discover__filter-btn--design {
+  background-color: var(--vermelho-filtro);
+}
+
+.discover__filter-btn--data {
+  background-color: var(--amarelo-filtro);
+}
+
+/* Grid de Cards */
+.discover__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Block: Quiz Card */
+.quiz-card {
+  background-color: var(--branco);
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.quiz-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card__media {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #2b303c;
+  overflow: hidden;
+}
+
+.quiz-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.quiz-card__tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: var(--dark-blue);
+  color: var(--branco);
+  font-family: var(--font-titles);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.3px;
+}
+
+.quiz-card__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.quiz-card__description {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+.quiz-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.quiz-card__difficulty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quiz-card__difficulty-icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+  object-fit: contain;
+}
+
+.quiz-card__btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* =========================================
+   Media Query: Desktop (> 820px)
+   ========================================= */
+@media screen and (min-width: 820px) {
+  .discover__title {
+    font-size: 2.375rem;
+  }
+
+  .discover__subtitle {
+    font-size: 1rem;
+  }
+
+  .discover__filter-title {
+    font-size: 1.25rem;
+  }
+
+  .discover__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .quiz-card__media {
+    height: 215px;
+  }
+}

@@ -71,6 +71,13 @@
   z-index: 999;
 }
 
+.header--home {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: var(--branco);
+}
+
 /* Media query para Desktop */
 @media screen and (min-width: 820px) {
   .header {
@@ -91,5 +98,11 @@
 
   .header__link {
     font-size: 1.125rem;
+  }
+
+  .header--home {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    padding-inline: 40px;
   }
 }

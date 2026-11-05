@@ -19,8 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       step: 1,
       total: 5,
       question: "Qual é a proposta do Playzzi para aprender tecnologia?",
-      feedback:
-        "Isso mesmo! Aqui, você aprende na prática e desenvolve novas habilidades com quizzes e desafios.",
+      feedback: "",
       options: [
         {
           text: "Estudar apenas programação, sem explorar outras áreas.",
@@ -45,8 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       step: 2,
       total: 5,
       question: "Para quem a plataforma do Playzzi foi idealizada?",
-      feedback:
-        "Perfeito! O Playzzi é feito para qualquer pessoa curiosa que queira começar sem medo de errar.",
+      feedback: "",
       options: [
         {
           text: "Apenas para quem já possui diploma na área de computação.",
@@ -71,8 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       step: 3,
       total: 5,
       question: "O que você desenvolve enquanto joga no Playzzi?",
-      feedback:
-        "Excelente! Estimulamos raciocínio lógico, criatividade e solução de problemas reais.",
+      feedback: "",
       options: [
         {
           text: "Acúmulo de horas de tela sem aprendizado prático.",
@@ -98,8 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       total: 5,
       question:
         "Como o Playzzi torna o aprendizado de tecnologia mais acessível?",
-      feedback:
-        "Isso aí! Transformamos o estudo em uma experiência interativa e leve para todos.",
+      feedback: "",
       options: [
         {
           text: "Transformando conceitos complexos em desafios interativos e leves.",
@@ -125,8 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       total: 5,
       question:
         "Qual é a principal vantagem de aprender tecnologia através de quizzes interativos?",
-      feedback:
-        "Exato! O feedback imediato ajuda a fixar o conteúdo e corrige rotas na hora.",
+      feedback: "",
       options: [
         {
           text: "Receber feedback imediato e testar o conhecimento de forma dinâmica.",
