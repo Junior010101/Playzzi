@@ -1,0 +1,62 @@
+/* 
+ * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+ * - Usar classes CSS para toda e qualquer estilização.
+ * - Usar block__element para elementos filhos do componente principal.
+ * - Usar block--modifier (ou block__element--modifier) para variações. 
+ */
+/* Block */
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 100px;
+  background-color: var(--branco);
+  padding-inline: 40px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='5'%3E%3cline x1='0' y1='2.5' x2='100%25' y2='2.5' stroke='%23375577' stroke-width='5' stroke-dasharray='10 8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 100% 5px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+/* Element */
+/* .header__icon {} */
+.header__icon-image {
+  min-width: 116px;
+  min-height: 80px;
+}
+
+.header__nav {
+  margin-left: auto;
+}
+.header__nav-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-weight: bold;
+}
+
+/* .header__item {} */
+
+.header__link {
+  text-decoration: none;
+  color: var(--dark-blue);
+}
+
+/* Modifier */
+
+/* Media query */
+@media screen and (min-width: 820px) {
+  .header {
+    padding-inline: 100px;
+  }
+  .header__nav-list {
+    gap: 50px;
+  }
+}

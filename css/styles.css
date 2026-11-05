@@ -9,8 +9,15 @@
   --fs-h4: 1.25rem; /* 20px */
   --fs-h6: 0.875rem; /* 14px */
   --color-text: #222222;
+
+  --branco: #ffffff;
+  --dark-blue: #375577;
 }
 
+/* 
+ * CSS Base
+ * Aqui a estrutura BEM (Block, Element, Modifier) entra em excessão por ser um CSS global 
+ */
 html {
   scroll-behavior: smooth;
 }
