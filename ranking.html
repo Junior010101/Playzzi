@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playzzi - Ranking</title>
+    <meta
+      name="description"
+      content="Playzzi - Site de Quiz educacional. Divirta-se. Questione. Evolua."
+    />
+    <meta name="theme-color" content="#375577" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link
+      rel="shortcut icon"
+      href="favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/ComicNeue-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components/button.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/components/sidebar.css" />
+    <link rel="stylesheet" href="./css/pages/ranking/ranking.css" />
+    <link rel="stylesheet" href="./css/components/footer.css" />
+  </head>
+  <body>
+    <!-- Barra de Navegação (Sidebar no desktop / Barra inferior no mobile) -->
+    <aside class="sidebar" aria-label="Navegação secundária">
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item">
+            <a
+              href="home.html"
+              class="sidebar__link"
+              title="Explorar"
+              aria-label="Explorar"
+            >
+              <img
+                src="./assets/icons/bulsola.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a
+              href="ranking.html#"
+              class="sidebar__link sidebar__link--active"
+              title="Classificação"
+              aria-label="Classificação"
+            >
+              <img
+                src="./assets/icons/trofeu.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--bottom">
+            <a
+              href="#"
+              class="sidebar__link"
+              title="Configurações"
+              aria-label="Configurações"
+            >
+              <img
+                src="./assets/icons/config.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Cabeçalho -->
+    <header class="header header--home">
+      <a class="header__icon" href="home.html" title="Voltar ao início">
+        <img
+          class="header__icon-image"
+          src="./assets/images/Logotipo.svg"
+          alt="Logotipo do Playzzi"
+          loading="eager"
+          fetchpriority="high"
+          width="116"
+          height="80"
+        />
+      </a>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="ranking">
+      <div class="ranking__container">
+        <!-- Cabeçalho do Ranking -->
+        <header class="ranking__header">
+          <h1 class="ranking__title">Ranking pessoal · João Pedro Machado</h1>
+
+          <!-- Posição Geral -->
+          <div
+            class="ranking__status-card"
+            role="status"
+            aria-label="Posição Geral: 3º Lugar na última partida"
+          >
+            <div class="ranking__status-badge" aria-hidden="true">3</div>
+            <div class="ranking__status-info">
+              <span class="ranking__status-label">Posição Geral</span>
+              <strong class="ranking__status-value">
+                3º Lugar na última partida
+              </strong>
+            </div>
+          </div>
+        </header>
+
+        <!-- Lista de Desempenho por Quiz -->
+        <section class="ranking__list" aria-label="Desempenho nos quizzes">
+          <!-- Card 1: Algoritimos -->
+          <article class="ranking-card">
+            <div class="ranking-card__media">
+              <img
+                src="./assets/images/No_Image_Available.jpg"
+                alt="Banner do quiz de Algoritimos"
+                class="ranking-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="ranking-card__content">
+              <header class="ranking-card__header">
+                <h2 class="ranking-card__title">Algoritimos</h2>
+                <span class="ranking-card__category">Programação</span>
+              </header>
+              <div class="ranking-card__metrics">
+                <div class="ranking-card__metric">
+                  <span class="ranking-card__label">Pontuação</span>
+                  <span class="ranking-card__value">800 pts</span>
+                  <span class="ranking-card__tag">Última partida</span>
+                </div>
+                <div class="ranking-card__metric ranking-card__metric--end">
+                  <span class="ranking-card__label">Percentual</span>
+                  <span
+                    class="ranking-card__value ranking-card__value--highlight"
+                  >
+                    80%
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Design de Personagens -->
+          <article class="ranking-card">
+            <div class="ranking-card__media">
+              <img
+                src="./assets/images/No_Image_Available.jpg"
+                alt="Banner do quiz Design de Personagens"
+                class="ranking-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="ranking-card__content">
+              <header class="ranking-card__header">
+                <h2 class="ranking-card__title">Design de Personagens</h2>
+                <span class="ranking-card__category">Design</span>
+              </header>
+              <div class="ranking-card__metrics">
+                <div class="ranking-card__metric">
+                  <span class="ranking-card__label">Pontuação</span>
+                  <span class="ranking-card__value">920 pts</span>
+                </div>
+                <div class="ranking-card__metric ranking-card__metric--end">
+                  <span class="ranking-card__label">Percentual</span>
+                  <span
+                    class="ranking-card__value ranking-card__value--highlight"
+                  >
+                    92%
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Banco de Dados -->
+          <article class="ranking-card">
+            <div class="ranking-card__media">
+              <img
+                src="./assets/images/No_Image_Available.jpg"
+                alt="Banner do quiz Banco de Dados"
+                class="ranking-card__img"
+                loading="lazy"
+              />
+            </div>
+            <div class="ranking-card__content">
+              <header class="ranking-card__header">
+                <h2 class="ranking-card__title">Banco de Dados</h2>
+                <span class="ranking-card__category">Dados</span>
+              </header>
+              <div class="ranking-card__metrics">
+                <div class="ranking-card__metric">
+                  <span class="ranking-card__label">Pontuação</span>
+                  <span class="ranking-card__value">750 pts</span>
+                </div>
+                <div class="ranking-card__metric ranking-card__metric--end">
+                  <span class="ranking-card__label">Percentual</span>
+                  <span
+                    class="ranking-card__value ranking-card__value--highlight"
+                  >
+                    75%
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer footer--home">
+      <div class="footer__bottom">
+        <div class="footer__bottom-inner">
+          <img
+            src="./assets/images/Logotipo.svg"
+            alt="Logotipo do Playzzi"
+            class="footer__logo"
+            loading="lazy"
+            width="85"
+            height="58"
+          />
+          <span class="footer__copyright">@2026 | Playzzi</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
