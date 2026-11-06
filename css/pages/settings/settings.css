@@ -1,0 +1,350 @@
+/* 
+ * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+ * Página de Configurações da Conta
+ */
+
+/* Block: Settings */
+.settings {
+  background-color: var(--cinza-bg-home);
+  min-height: calc(100vh - 75px);
+  padding: 24px 16px 80px;
+}
+
+/* Container */
+.settings__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  gap: 8px;
+}
+
+/* Page Title */
+.settings__title {
+  font-family: var(--font-titles);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-bottom: 20px;
+}
+
+/* Block: Settings Section Card */
+.settings-section {
+  background-color: var(--branco);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.settings-section--danger {
+  background-color: #fef2f2;
+}
+
+/* Section Title */
+.settings-section__title {
+  font-family: var(--font-titles);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-bottom: 20px;
+}
+
+.settings-section--danger .settings-section__title {
+  color: #b91c1c;
+}
+
+/* Block: Form */
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Form Field */
+.settings-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.settings-form__label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--cinza-texto);
+}
+
+.settings-form__input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--branco);
+  border: 1.5px solid #e1e6eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.settings-form__input:focus {
+  border-color: var(--dark-blue);
+  box-shadow: 0 0 0 3px rgba(55, 85, 119, 0.12);
+}
+
+.settings-form__input::placeholder {
+  color: #b0bcc9;
+}
+
+/* Password Field Wrapper */
+.settings-form__field--password {
+  position: relative;
+}
+
+.settings-form__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.settings-form__input--password {
+  padding-right: 52px;
+}
+
+.settings-form__toggle-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--cinza-texto);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.settings-form__toggle-btn:hover {
+  color: var(--dark-blue);
+  background-color: rgba(55, 85, 119, 0.08);
+}
+
+.settings-form__toggle-btn:focus-visible {
+  outline: 2px solid var(--dark-blue);
+  outline-offset: 2px;
+}
+
+.settings-form__toggle-icon {
+  width: 22px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+/* Submit Button */
+.settings-form__btn {
+  width: 100%;
+  min-height: 60px;
+  font-size: 1.0625rem;
+}
+
+/* Block: Theme Switcher */
+.settings-theme {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.settings-theme__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 16px;
+  border-radius: 16px;
+  border: 2px solid var(--cinza-borda);
+  background-color: var(--branco);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.settings-theme__option:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.settings-theme__option--active {
+  border-color: var(--dark-blue);
+  box-shadow: 0 0 0 3px rgba(55, 85, 119, 0.12);
+}
+
+.settings-theme__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.settings-theme__icon--light {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.settings-theme__icon--dark {
+  background-color: #1f2937;
+  color: var(--branco);
+}
+
+.settings-theme__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.settings-theme__label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Danger description */
+.settings-section__description {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: #b91c1c;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+/* Danger Button */
+.settings-section__btn--danger {
+  width: 100%;
+  min-height: 60px;
+  font-size: 1.0625rem;
+  background-color: #dc2626;
+  color: var(--branco);
+  border: none;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+.settings-section__btn--danger:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(220, 38, 38, 0.3);
+}
+
+.settings-section__btn--danger:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Por padrão: Mostra o olho aberto, esconde o olho fechado */
+.settings-form__toggle-btn .settings-form__toggle-icon--open {
+  display: inline-block;
+}
+
+.settings-form__toggle-btn .settings-form__toggle-icon--close {
+  display: none;
+}
+
+/* Quando o botão está com a classe .is-visible (senha visível): Inverte */
+.settings-form__toggle-btn.is-visible .settings-form__toggle-icon--open {
+  display: none;
+}
+
+.settings-form__toggle-btn.is-visible .settings-form__toggle-icon--close {
+  display: inline-block;
+}
+
+.indisponivel-dark {
+  background-image: url("/assets/images/indisponivel.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* =========================================
+   Media Query: Desktop (> 820px)
+   ========================================= */
+@media screen and (min-width: 820px) {
+  .settings {
+    margin-left: 80px;
+    padding: 40px 50px 80px;
+    min-height: calc(100vh - 100px);
+  }
+
+  .settings__title {
+    font-size: 2rem;
+  }
+
+  .settings-section {
+    padding: 32px 36px;
+    border-radius: 24px;
+  }
+
+  .settings-section__title {
+    font-size: 1.375rem;
+    margin-bottom: 24px;
+  }
+
+  .settings-form__input {
+    font-size: 1.0625rem;
+    padding: 16px 18px;
+  }
+
+  .settings-form__btn {
+    min-height: 65px;
+    font-size: 1.125rem;
+  }
+
+  .settings-theme__option {
+    padding: 32px 24px;
+    gap: 16px;
+  }
+
+  .settings-theme__icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .settings-theme__icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .settings-theme__label {
+    font-size: 1.0625rem;
+  }
+
+  .settings-section__btn--danger {
+    min-height: 65px;
+    font-size: 1.125rem;
+  }
+}

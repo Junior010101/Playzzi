@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playzzi - Configurações</title>
+    <meta
+      name="description"
+      content="Playzzi - Site de Quiz educacional. Divirta-se. Questione. Evolua."
+    />
+    <meta name="theme-color" content="#375577" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link
+      rel="shortcut icon"
+      href="favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/ComicNeue-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components/button.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/components/sidebar.css" />
+    <link rel="stylesheet" href="./css/pages/settings/settings.css" />
+    <link rel="stylesheet" href="./css/components/footer.css" />
+  </head>
+  <body>
+    <!-- Barra de Navegação (Sidebar no desktop / Barra inferior no mobile) -->
+    <aside class="sidebar" aria-label="Navegação secundária">
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item">
+            <a
+              href="home.html"
+              class="sidebar__link"
+              title="Explorar"
+              aria-label="Explorar"
+            >
+              <img
+                src="./assets/icons/bulsola.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a
+              href="ranking.html"
+              class="sidebar__link"
+              title="Classificação"
+              aria-label="Classificação"
+            >
+              <img
+                src="./assets/icons/trofeu.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--bottom">
+            <a
+              href="#"
+              class="sidebar__link sidebar__link--active"
+              title="Configurações"
+              aria-label="Configurações"
+            >
+              <img
+                src="./assets/icons/config.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Cabeçalho -->
+    <header class="header header--home">
+      <a class="header__icon" href="home.html" title="Voltar ao início">
+        <img
+          class="header__icon-image"
+          src="./assets/images/Logotipo.svg"
+          alt="Logotipo do Playzzi"
+          loading="eager"
+          fetchpriority="high"
+          width="116"
+          height="80"
+        />
+      </a>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="settings">
+      <div class="settings__container">
+        <h1 class="settings__title">Configurações da Conta</h1>
+
+        <!-- Seção: Dados da Conta -->
+        <section
+          class="settings-section"
+          aria-labelledby="settings-account-title"
+        >
+          <h2 class="settings-section__title" id="settings-account-title">
+            Dados da Conta
+          </h2>
+
+          <form class="settings-form" novalidate>
+            <div class="settings-form__field">
+              <label class="settings-form__label" for="username">
+                Nome de Usuário
+              </label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                class="settings-form__input"
+                placeholder="João Pedro Machado"
+                autocomplete="username"
+                aria-describedby="username-hint"
+              />
+            </div>
+
+            <div class="settings-form__field">
+              <label class="settings-form__label" for="email"> Email </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="settings-form__input"
+                placeholder="joao.pedro.machado@email.com"
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="settings-form__field">
+              <label class="settings-form__label" for="password">Senha</label>
+              <div class="settings-form__input-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="settings-form__input settings-form__input--password"
+                  placeholder="••••••••••••"
+                  autocomplete="new-password"
+                />
+                <button
+                  type="button"
+                  class="settings-form__toggle-btn"
+                  aria-label="Mostrar senha"
+                  aria-controls="password"
+                  aria-pressed="false"
+                >
+                  <!-- Olho aberto: estado padrão — senha oculta, clique para revelar -->
+                  <img
+                    src="./assets/icons/open-eye.svg"
+                    alt=""
+                    aria-hidden="true"
+                    class="settings-form__toggle-icon settings-form__toggle-icon--close"
+                    width="22"
+                    height="18"
+                  />
+                  <!-- Olho fechado: senha visível, clique para esconder -->
+                  <img
+                    src="./assets/icons/close-eye.svg"
+                    alt=""
+                    aria-hidden="true"
+                    class="settings-form__toggle-icon settings-form__toggle-icon--open"
+                    width="22"
+                    height="9"
+                    hidden
+                  />
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="button button--primary settings-form__btn"
+            >
+              Salvar Alterações
+            </button>
+          </form>
+        </section>
+
+        <!-- Seção: Tema do Site -->
+        <section
+          class="settings-section"
+          aria-labelledby="settings-theme-title"
+        >
+          <h2 class="settings-section__title" id="settings-theme-title">
+            Tema do Site
+          </h2>
+
+          <div
+            class="settings-theme"
+            role="radiogroup"
+            aria-labelledby="settings-theme-title"
+          >
+            <!-- Tema: Claro (ativo) -->
+            <label
+              class="settings-theme__option settings-theme__option--active"
+              aria-label="Tema Claro"
+            >
+              <input
+                type="radio"
+                name="theme"
+                value="light"
+                checked
+                class="quiz__sr-only"
+              />
+              <span
+                class="settings-theme__icon settings-theme__icon--light"
+                aria-hidden="true"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <line x1="12" y1="2" x2="12" y2="4" />
+                  <line x1="12" y1="20" x2="12" y2="22" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="2" y1="12" x2="4" y2="12" />
+                  <line x1="20" y1="12" x2="22" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+              </span>
+              <span class="settings-theme__label">Claro</span>
+            </label>
+
+            <!-- Tema: Escuro -->
+            <label
+              class="settings-theme__option indisponivel-dark"
+              aria-label="Tema Escuro"
+            >
+              <input
+                type="radio"
+                name="theme"
+                value="dark"
+                class="quiz__sr-only"
+              />
+              <span
+                class="settings-theme__icon settings-theme__icon--dark"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              </span>
+              <span class="settings-theme__label">Escuro</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Seção: Excluir Conta -->
+        <section
+          class="settings-section settings-section--danger"
+          aria-labelledby="settings-danger-title"
+        >
+          <h2 class="settings-section__title" id="settings-danger-title">
+            Excluir Conta
+          </h2>
+          <p class="settings-section__description">
+            Ao excluir sua conta, todos os seus dados e progressos serão
+            permanentemente apagados. Esta ação não pode ser desfeita.
+          </p>
+          <button
+            type="button"
+            class="settings-section__btn--danger"
+            aria-label="Excluir conta permanentemente"
+          >
+            Excluir Conta
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer footer--home">
+      <div class="footer__bottom">
+        <div class="footer__bottom-inner">
+          <img
+            src="./assets/images/Logotipo.svg"
+            alt="Logotipo do Playzzi"
+            class="footer__logo"
+            loading="lazy"
+            width="85"
+            height="58"
+          />
+          <span class="footer__copyright">@2026 | Playzzi</span>
+        </div>
+      </div>
+    </footer>
+    <script defer src="./js/settings.js"></script>
+  </body>
+</html>
