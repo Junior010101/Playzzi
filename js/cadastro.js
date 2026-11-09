@@ -6,5 +6,8 @@ formulario.addEventListener("submit", function (e) {
   const objeto = new FormData(formulario);
   const dados = Object.fromEntries(objeto.entries());
 
-  console.log(dados.nome);
+  execute("INSERT INTO Client (Name, Email, Senha) VALUES (?, ?, ?)", [dados.nome, dados.email, dados.senha], CONFIG);
+ 
+  formulario.reset()
 });
+
