@@ -1,26 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teste Html</title>
-</head>
-<body>
+  </head>
+  <body>
     <form id="formularioUsuario">
+      <label for="nome" id="nome">Nome:</label>
+      <input type="text" name="nome" required />
 
-        <label for="nome" id="nome" >Nome:</label>
-        <input type="text" name="nome" required>
+      <label for="email" id="email">Email:</label>
+      <input type="email" name="email" required />
 
-        <label for="email" id="email" >Email:</label>
-        <input type="email" name="email" required>
+      <label for="senha" id="senha">Senha:</label>
+      <input type="password" name="senha" required />
 
-        <label for="senha" id="senha" >Senha:</label>
-        <input type="password" name="senha" required>
-
-        <button type="submit" id="botao" >Enviar Forms</button>
-
+      <button type="submit" id="botao">Enviar Forms</button>
     </form>
 
-    <script defer src="/js/cadastro.js"></script>
-</body>
+    <script defer src="./js/cadastro.js"></script>
+  </body>
 </html>
