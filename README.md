@@ -54,7 +54,7 @@ O **Playzzi** é um site de quiz educacional voltado exclusivamente para a **ár
 ## 🎨 Identidade Visual e Tipografia
 
 - **Títulos:** Obrigatório uso da fonte **Comic Neue**.
-- **Parágrafos e Textos:** Obrigatório uso da fonte **Inter** (além de suporte a *Montserrat*).
+- **Parágrafos e Textos:** Obrigatório uso da fonte **Inter**.
 - **Paleta de Cores do Projeto:**
   1. `#5F7792`
   2. `#F26A1B`
