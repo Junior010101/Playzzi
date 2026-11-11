@@ -11,3 +11,15 @@ formulario.addEventListener("submit", function (e) {
   formulario.reset()
 });
 
+
+function validarUsuario(){
+  const senha = document.getElementById("senha");
+  if (senha < 8 || senha >30);
+  window.alert("Senha incorreta! Tente Novamente.")
+
+  const nome = document.getElementById("nome");
+  if (nome < 4 || nome > 255);
+  window.alert("Seu nome tem poucos caracteres.")
+
+  window.alert("Seu cadastro foi realizado com sucesso")
+};
