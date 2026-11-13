@@ -102,11 +102,16 @@ Este projeto está licenciado sob a Licença **GNU General Public License v3.0 (
 ### Comic Neue Font
 
 Copyright 2014 The Comic Neue Project Authors (<https://github.com/crozynski/comicneue>).
-Licenciado under SIL Open Font License, Version 1.1.
+Licensed under the SIL Open Font License, Version 1.1.
 
 ### Inter Font
 
 Copyright 2020 The Inter Project Authors (<https://github.com/rsms/inter>)
+Licensed under the SIL Open Font License, Version 1.1.
+
+### ArchivoBlack Font
+
+Copyright 2017 The Archivo Black Project Authors (<https://github.com/Omnibus-Type/ArchivoBlack>).
 Licensed under the SIL Open Font License, Version 1.1.
 
 ### Josh's Custom CSS Reset

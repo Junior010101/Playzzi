@@ -20,3 +20,14 @@
   font-weight: 100 900;
   font-display: swap;
 }
+
+/* 
+ * Copyright 2017 The Archivo Black Project Authors (https://github.com/Omnibus-Type/ArchivoBlack)
+ * This Font Software is licensed under the SIL Open Font License, Version 1.1. 
+ */
+@font-face {
+  font-family: "ArchivoBlack";
+  src: url("../assets/fonts/ArchivoBlack-Regular.ttf") format("truetype");
+  font-weight: 900;
+  font-display: swap;
+}
