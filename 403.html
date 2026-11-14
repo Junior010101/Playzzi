@@ -35,17 +35,33 @@
     <link rel="stylesheet" href="./css/fonts.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/components/button.css" />
+    <link rel="stylesheet" href="./css/pages/403/forbidden.css" />
   </head>
   <body>
     <main class="main">
-      <a href="index.html" class="button back-btn">Voltar</a>
-      <hgroup class="warning">
-        <h1 class="code">403</h1>
-        <h2 class="type">Forbidden</h2>
-      </hgroup>
-      <p class="message">
-        Acesso Negado. Você não tem permissão para acessar essa página.
-      </p>
+      <div class="main__content">
+        <picture class="main__paperplane-image">
+          <source
+            srcset="./assets/images/PaperPlane-Vector-no-trace.svg"
+            media="(max-width: 819.98px)"
+          />
+
+          <img
+            src="./assets/images/PaperPlane-Vector.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </picture>
+        <a href="index.html" class="button main__back-btn">Voltar</a>
+        <hgroup class="main__warning">
+          <h1 class="main__code" data-text="403">403</h1>
+          <h2 class="main__type">Forbidden</h2>
+          <p class="main__message">
+            Acesso Negado.<br />
+            Você não tem permissão para acessar essa página.
+          </p>
+        </hgroup>
+      </div>
     </main>
   </body>
 </html>
