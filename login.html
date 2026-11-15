@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar no game! | Playzzi</title>
+    <meta
+      name="description"
+      content="Playzzi - Site de Quiz educacional. Divirta-se. Questione. Evolua."
+    />
+    <meta name="theme-color" content="#375577" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link
+      rel="shortcut icon"
+      href="favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/ComicNeue-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components/button.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/pages/login/login.css" />
+  </head>
+  <body>
+    <header class="header header--start login__header">
+      <a class="header__icon" href="index.html" title="Voltar ao início">
+        <img
+          class="header__icon-image"
+          src="./assets/images/Logotipo.svg"
+          alt="Logotipo do Playzzi"
+          loading="eager"
+          fetchpriority="high"
+          width="116"
+          height="80"
+        />
+      </a>
+    </header>
+    <main class="login">
+      <div class="login__illustration" aria-hidden="true">
+        <div class="login__circle">
+          <img
+            src="./assets/images/imagem.png"
+            alt=""
+            class="login__image"
+            loading="eager"
+          />
+        </div>
+      </div>
+      <section class="login__content" aria-labelledby="login-title">
+        <div class="login__form-container">
+          <h1 class="login__title" id="login-title" data-text="Entrar no game!">
+            Entrar no game!
+          </h1>
+          <form class="login__form" action="#" method="post" id="loginForm">
+            <div class="login__field">
+              <label class="login__label" for="email">Email</label>
+              <input
+                class="login__input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Qual o seu e-mail?"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="login__field">
+              <label class="login__label" for="senha">Senha</label>
+              <input
+                class="login__input"
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Qual sua senha?"
+                autocomplete="current-password"
+                required
+              />
+            </div>
+            <button type="submit" class="button button--primary login__button">
+              Entrar no game!
+            </button>
+          </form>
+          <p class="login__switch">
+            Ainda não tem uma conta?
+            <a href="cadastro.html" class="login__link">Cadastre-se!</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <script defer src="./client/config.js"></script>
+    <script defer src="./client/database.js"></script>
+    <script defer src="./js/login.js"></script>
+  </body>
+</html>

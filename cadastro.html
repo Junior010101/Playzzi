@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastre-se! | Playzzi</title>
+    <meta
+      name="description"
+      content="Playzzi - Site de Quiz educacional. Divirta-se. Questione. Evolua."
+    />
+    <meta name="theme-color" content="#375577" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link
+      rel="shortcut icon"
+      href="favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/ComicNeue-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components/button.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/pages/cadastro/cadastro.css" />
+  </head>
+  <body>
+    <header class="header header--start cadastro__header">
+      <a class="header__icon" href="index.html" title="Voltar ao início">
+        <img
+          class="header__icon-image"
+          src="./assets/images/Logotipo.svg"
+          alt="Logotipo do Playzzi"
+          loading="eager"
+          fetchpriority="high"
+          width="116"
+          height="80"
+        />
+      </a>
+    </header>
+    <main class="cadastro">
+      <div class="cadastro__illustration" aria-hidden="true">
+        <div class="cadastro__circle">
+          <img
+            src="./assets/images/imagem.png"
+            alt=""
+            class="cadastro__image"
+            loading="eager"
+          />
+        </div>
+      </div>
+      <section class="cadastro__content" aria-labelledby="cadastro-title">
+        <div class="cadastro__form-container">
+          <h1
+            class="cadastro__title"
+            id="cadastro-title"
+            data-text="Cadastre-se!"
+          >
+            Cadastre-se!
+          </h1>
+          <form
+            class="cadastro__form"
+            action="#"
+            method="post"
+            id="cadastroForm"
+          >
+            <div class="cadastro__field">
+              <label class="cadastro__label" for="nome">Nome</label>
+              <input
+                class="cadastro__input"
+                id="nome"
+                name="nome"
+                type="text"
+                placeholder="Crie um nickname legal!"
+                autocomplete="nickname"
+                required
+              />
+            </div>
+            <div class="cadastro__field">
+              <label class="cadastro__label" for="email">Email</label>
+              <input
+                class="cadastro__input"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Qual o seu e-mail?"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="cadastro__field">
+              <label class="cadastro__label" for="senha">Senha</label>
+              <input
+                class="cadastro__input"
+                id="senha"
+                name="senha"
+                type="password"
+                placeholder="Faça sua senha!"
+                autocomplete="new-password"
+                minlength="6"
+                required
+              />
+            </div>
+            <div class="cadastro__field">
+              <label class="cadastro__label" for="confirmarSenha"
+                >Confirmar Senha</label
+              >
+              <input
+                class="cadastro__input"
+                id="confirmarSenha"
+                name="confirmarSenha"
+                type="password"
+                placeholder="Tem certeza que vai ser essa mesmo?"
+                autocomplete="new-password"
+                minlength="6"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="button button--primary cadastro__button"
+            >
+              Fazer Cadastro
+            </button>
+          </form>
+          <p class="cadastro__switch">
+            Já tem uma conta?
+            <a href="login.html" class="cadastro__link">Entre aqui!</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <script defer src="./client/config.js"></script>
+    <script defer src="./client/database.js"></script>
+    <script defer src="./js/cadastro.js"></script>
+  </body>
+</html>
