@@ -31,4 +31,5 @@ formulario.addEventListener("submit", function (e) {
 
   window.alert("Seu cadastro foi realizado com sucesso");
   formulario.reset();
+  window.location.href = "index.html";
 });

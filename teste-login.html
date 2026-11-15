@@ -1,24 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teste</title>
-</head>
-<body>
+  </head>
+  <body>
     <form id="loginUsuario">
+      <!--Email-->
+      <label for="email">Email:</label>
+      <input name="email" type="email" id="email" required />
 
-        <!--Email-->
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
+      <!--Senha-->
+      <label for="senha">Senha:</label>
+      <input name="senha" type="password" id="senha" required />
 
-        <!--Senha-->
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" required>
-
-        <button type="submit">Enviar</button>
+      <button type="submit">Enviar</button>
     </form>
 
-    <script src="login.js"></script>
-</body>
+    <script defer src="./js/login.js"></script>
+    <script defer src="./client/config.js"></script>
+    <script defer src="./client/database.js"></script>
+  </body>
 </html>
