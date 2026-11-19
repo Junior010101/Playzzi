@@ -1,3 +1,16 @@
+const toHranaArg = (param) => {
+  if (param === null || param === undefined) {
+    return { type: "null", value: null };
+  }
+  if (typeof param === "number") {
+    if (Number.isInteger(param)) {
+      return { type: "integer", value: String(param) };
+    }
+    return { type: "float", value: param };
+  }
+  return { type: "text", value: String(param) };
+};
+
 const execute = async (sql, params = [], config = {}) => {
   let dbUrl = config.databaseUrl || process.env.DATABASE_URL;
   const authToken = config.databaseToken || process.env.DATABASE_AUTH_TOKEN;
@@ -20,18 +33,15 @@ const execute = async (sql, params = [], config = {}) => {
   const requestsList = [];
 
   for (const stmt of statements) {
-    let formattedSql = stmt;
+    const stmtPayload = { sql: stmt };
 
     if (params && params.length > 0) {
-      for (const param of params) {
-        const value = typeof param === "string" ? `'${param}'` : String(param);
-        formattedSql = formattedSql.replace("?", value);
-      }
+      stmtPayload.args = params.map(toHranaArg);
     }
 
     requestsList.push({
       type: "execute",
-      stmt: { sql: formattedSql },
+      stmt: stmtPayload,
     });
   }
 

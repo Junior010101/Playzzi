@@ -1,11 +1,11 @@
 const formulario = document.getElementById("cadastroForm");
 
 function validarUsuario(nome, senha) {
-  if (nome.length < 4 || nome.length > 255) {
+  if (!nome || nome.length < 4 || nome.length > 255) {
     window.alert("O nome deve ter entre 4 e 255 caracteres.");
     return false;
   }
-  if (senha.length < 8 || senha.length > 30) {
+  if (!senha || senha.length < 8 || senha.length > 255) {
     window.alert("A senha deve ser maior que 8 e menor que 30 caracteres.");
     return false;
   }
@@ -14,7 +14,7 @@ function validarUsuario(nome, senha) {
 }
 
 function validarSenhas(senha, confirmarSenha) {
-  if (confirmarSenha && confirmarSenha !== senha) {
+  if (confirmarSenha !== senha) {
     window.alert("As senhas não coincidem.");
     return false;
   }
@@ -22,25 +22,39 @@ function validarSenhas(senha, confirmarSenha) {
   return true;
 }
 
-formulario.addEventListener("submit", function (e) {
+formulario.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const objeto = new FormData(formulario);
-  const dados = Object.fromEntries(objeto.entries());
+  const dados = Object.fromEntries(new FormData(formulario).entries());
+  const nomeLimpo = (dados.nome || "").trim();
+  const emailLimpo = (dados.email || "").trim().toLowerCase();
+  const senha = dados.senha || "";
+  const confirmarSenha = dados.confirmarSenha || "";
 
-  if (!validarUsuario(dados.nome, dados.senha)) {
+  if (!validarUsuario(nomeLimpo, emailLimpo, senha)) {
     return;
   }
 
-  if (!validarSenhas(dados.senha, dados.confirmarSenha)) {
+  if (!validarSenhas(senha, confirmarSenha)) {
     return;
   }
 
-  execute(
-    "INSERT INTO Client (Name, Email, Senha) VALUES (?, ?, ?)",
-    [dados.nome, dados.email, dados.senha],
-    CONFIG,
-  );
+  try {
+    await execute(
+      "INSERT INTO Cliente (nome, email, senha) VALUES (?, ?, ?)",
+      [nomeLimpo, emailLimpo, senha],
+      CONFIG,
+    );
+  } catch (error) {
+    console.error(error);
+    const msg = String(error?.message || "");
+    if (msg.includes("UNIQUE")) {
+      window.alert("Este e-mail já está cadastrado.");
+    } else {
+      window.alert("Erro ao conectar com o banco de dados. Tente novamente.");
+    }
+    return;
+  }
 
   window.alert("Seu cadastro foi realizado com sucesso");
   formulario.reset();
