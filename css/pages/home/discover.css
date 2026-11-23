@@ -80,6 +80,10 @@
   transform: translateY(0);
 }
 
+.discover__filter-btn--update {
+  background-color: var(--cinza-texto);
+}
+
 .discover__filter-btn--all {
   background-color: var(--verde-filtro);
 }

@@ -284,10 +284,19 @@
 }
 
 .indisponivel-dark {
-  background-image: url("/assets/images/indisponivel.png");
+  position: relative;
+}
+
+.indisponivel-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../../assets/images/indisponivel.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  pointer-events: none;
+  z-index: 10;
 }
 
 /* =========================================

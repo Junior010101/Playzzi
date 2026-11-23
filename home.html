@@ -142,12 +142,26 @@
           <div class="discover__filters">
             <h2 class="discover__filter-title">Filtrar por área</h2>
             <ul class="discover__filter-list" role="tablist">
+              <li class="discover__update-button" role="presentation">
+                <button
+                  aria-label="botão para atualizar lista"
+                  type="button"
+                  class="discover__filter-btn discover__filter-btn--update"
+                  role="tab"
+                  onclick="updateCardContainer()"
+                >
+                  <span aria-hidden="true">
+                    <img src="./assets/icons/update.svg" alt="" />
+                  </span>
+                </button>
+              </li>
               <li class="discover__filter-item" role="presentation">
                 <button
                   type="button"
                   class="discover__filter-btn discover__filter-btn--all"
                   role="tab"
                   aria-selected="true"
+                  onclick="renderCards('todas')"
                 >
                   Todas
                 </button>
@@ -158,6 +172,7 @@
                   class="discover__filter-btn discover__filter-btn--dev"
                   role="tab"
                   aria-selected="false"
+                  onclick="renderCards('programação')"
                 >
                   Programação
                 </button>
@@ -168,6 +183,7 @@
                   class="discover__filter-btn discover__filter-btn--design"
                   role="tab"
                   aria-selected="false"
+                  onclick="renderCards('design')"
                 >
                   Design
                 </button>
@@ -178,6 +194,7 @@
                   class="discover__filter-btn discover__filter-btn--data"
                   role="tab"
                   aria-selected="false"
+                  onclick="renderCards('dados')"
                 >
                   Dados
                 </button>
@@ -185,227 +202,7 @@
             </ul>
           </div>
 
-          <div class="discover__grid">
-            <!-- Card 1 (Fácil) -->
-            <article class="quiz-card">
-              <div class="quiz-card__media">
-                <img
-                  src="./assets/images/No_Image_Available.jpg"
-                  alt="Ilustração do quiz de Algoritmos"
-                  class="quiz-card__img"
-                  loading="lazy"
-                />
-                <span class="quiz-card__tag">Algoritmos</span>
-              </div>
-              <div class="quiz-card__content">
-                <p class="quiz-card__description">
-                  Os algoritmos movem o mundo digital, mas será que você
-                  consegue prever como eles funcionam? Teste seus conhecimentos
-                  sobre estruturas de dados, eficiência, ordenação e lógica
-                  computacional neste quiz rápido e desafiador.
-                </p>
-                <div class="quiz-card__footer">
-                  <div
-                    class="quiz-card__difficulty"
-                    aria-label="Dificuldade: Fácil"
-                  >
-                    <img
-                      src="./assets/icons/ease.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                    <img
-                      src="./assets/icons/ease.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                    <img
-                      src="./assets/icons/ease.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                  </div>
-                  <a href="#" class="button button--primary quiz-card__btn">
-                    Jogar
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 2 (Médio-baixo) -->
-            <article class="quiz-card">
-              <div class="quiz-card__media">
-                <img
-                  src="./assets/images/No_Image_Available.jpg"
-                  alt="Ilustração do quiz de Algoritmos"
-                  class="quiz-card__img"
-                  loading="lazy"
-                />
-                <span class="quiz-card__tag">Algoritmos</span>
-              </div>
-              <div class="quiz-card__content">
-                <p class="quiz-card__description">
-                  Os algoritmos movem o mundo digital, mas será que você
-                  consegue prever como eles funcionam? Teste seus conhecimentos
-                  sobre estruturas de dados, eficiência, ordenação e lógica
-                  computacional neste quiz rápido e desafiador.
-                </p>
-                <div class="quiz-card__footer">
-                  <div
-                    class="quiz-card__difficulty"
-                    aria-label="Dificuldade: Média"
-                  >
-                    <img
-                      src="./assets/icons/ease.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                    <img
-                      src="./assets/icons/medium.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                    <img
-                      src="./assets/icons/medium.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                  </div>
-                  <a href="#" class="button button--primary quiz-card__btn">
-                    Jogar
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 3 (Médio-alto) -->
-            <article class="quiz-card">
-              <div class="quiz-card__media">
-                <img
-                  src="./assets/images/No_Image_Available.jpg"
-                  alt="Ilustração do quiz de Algoritmos"
-                  class="quiz-card__img"
-                  loading="lazy"
-                />
-                <span class="quiz-card__tag">Algoritmos</span>
-              </div>
-              <div class="quiz-card__content">
-                <p class="quiz-card__description">
-                  Os algoritmos movem o mundo digital, mas será que você
-                  consegue prever como eles funcionam? Teste seus conhecimentos
-                  sobre estruturas de dados, eficiência, ordenação e lógica
-                  computacional neste quiz rápido e desafiador.
-                </p>
-                <div class="quiz-card__footer">
-                  <div
-                    class="quiz-card__difficulty"
-                    aria-label="Dificuldade: Avançada"
-                  >
-                    <img
-                      src="./assets/icons/medium.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                    <img
-                      src="./assets/icons/medium.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                    <img
-                      src="./assets/icons/hard.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                  </div>
-                  <a href="#" class="button button--primary quiz-card__btn">
-                    Jogar
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 4 (Difícil) -->
-            <article class="quiz-card">
-              <div class="quiz-card__media">
-                <img
-                  src="./assets/images/No_Image_Available.jpg"
-                  alt="Ilustração do quiz de Algoritmos"
-                  class="quiz-card__img"
-                  loading="lazy"
-                />
-                <span class="quiz-card__tag">Algoritmos</span>
-              </div>
-              <div class="quiz-card__content">
-                <p class="quiz-card__description">
-                  Os algoritmos movem o mundo digital, mas será que você
-                  consegue prever como eles funcionam? Teste seus conhecimentos
-                  sobre estruturas de dados, eficiência, ordenação e lógica
-                  computacional neste quiz rápido e desafiador.
-                </p>
-                <div class="quiz-card__footer">
-                  <div
-                    class="quiz-card__difficulty"
-                    aria-label="Dificuldade: Difícil"
-                  >
-                    <img
-                      src="./assets/icons/hard.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                    <img
-                      src="./assets/icons/hard.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                    <img
-                      src="./assets/icons/hard.svg"
-                      alt=""
-                      aria-hidden="true"
-                      class="quiz-card__difficulty-icon"
-                      width="26"
-                      height="26"
-                    />
-                  </div>
-                  <a href="#" class="button button--primary quiz-card__btn">
-                    Jogar
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
+          <div id="card-container" class="discover__grid"></div>
         </section>
 
         <!-- Seção: Mais jogados -->
@@ -547,5 +344,8 @@
         </div>
       </div>
     </footer>
+    <script defer src="./client/config.js"></script>
+    <script defer src="./client/database.js"></script>
+    <script defer src="./js/render-cards.js"></script>
   </body>
 </html>
