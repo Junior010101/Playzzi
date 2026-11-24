@@ -3,14 +3,14 @@ const formulario = document.getElementById("loginForm");
 formulario.addEventListener("submit", async function (e) {
   e.preventDefault();
   
-  let userId, dbEmail, dbSenha;
+  let userId, userName, dbEmail, dbSenha;
 
   const dados = Object.fromEntries(new FormData(formulario).entries());
   const emailLimpo = (dados.email || "").trim().toLowerCase();
   
   try {
-    [[userId, dbEmail, dbSenha] = []] = await execute(
-        "SELECT id, email, senha FROM Cliente WHERE email = ?",
+    [[userId, userName, dbEmail, dbSenha] = []] = await execute(
+        "SELECT id, nome, email, senha FROM Cliente WHERE email = ?",
         [emailLimpo],
         CONFIG,
     );
@@ -33,7 +33,11 @@ formulario.addEventListener("submit", async function (e) {
   window.alert("Usuário autenticado");
 
   formulario.reset();
-  localStorage.setItem("usuarioLogado", userId);
+  localStorage.setItem("usuarioLogado", JSON.stringify({
+    id: userId, 
+    nome: userName,
+    email: dbEmail
+  }));
   window.location.href = "home.html";
 });
 

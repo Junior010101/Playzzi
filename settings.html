@@ -136,7 +136,7 @@
             Dados da Conta
           </h2>
 
-          <form class="settings-form" novalidate>
+          <form class="settings-form" id="form-usuario" novalidate>
             <div class="settings-form__field">
               <label class="settings-form__label" for="username">
                 Nome de Usuário
@@ -144,9 +144,8 @@
               <input
                 type="text"
                 id="username"
-                name="username"
+                name="name"
                 class="settings-form__input"
-                placeholder="João Pedro Machado"
                 autocomplete="username"
                 aria-describedby="username-hint"
               />
@@ -330,5 +329,7 @@
       </div>
     </footer>
     <script defer src="./js/settings.js"></script>
+    <script defer src="./client/database.js"></script>
+    <script defer src="./client/config.js"></script>
   </body>
 </html>
