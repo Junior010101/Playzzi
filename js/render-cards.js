@@ -16,14 +16,6 @@ const DIFFICULTY_MAP = {
   7: ["r", "r", "r"],
 };
 
-if (!localStorage.getItem("cardContainerData")) {
-  updateCardContainer();
-}
-
-if (!localStorage.getItem("cardContainerFilter")) {
-  localStorage.setItem("cardContainerFilter", "todas");
-}
-
 const updateCardContainer = async () => {
   let data;
 
@@ -160,4 +152,11 @@ const renderCards = (filtro) => {
   });
 };
 
-renderCards();
+if (!localStorage.getItem("cardContainerFilter")) {
+  localStorage.setItem("cardContainerFilter", "todas");
+}
+if (!localStorage.getItem("cardContainerData")) {
+  updateCardContainer();
+} else {
+  renderCards();
+}
