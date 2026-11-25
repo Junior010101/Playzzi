@@ -36,10 +36,10 @@ formulario.addEventListener("submit", async function (e) {
   localStorage.setItem(
     "usuarioLogado",
     JSON.stringify({
-      id: userId,
+      id: encodeId(userId),
       nome: userName,
       email: dbEmail,
-      senha: dbSenha,
+      tamanhoSenha: String(dbSenha ?? "").length,
     }),
   );
   window.location.href = "home.html";

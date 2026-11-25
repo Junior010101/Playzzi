@@ -72,22 +72,30 @@ form.addEventListener("submit", async function (evento) {
     return;
   }
 
-  if (!dadosUsuario?.id) {
+  const idDecodificado = decodeId(dadosUsuario?.id);
+
+  if (!idDecodificado) {
     window.alert("Usuário não identificado.");
     return;
   }
 
-  valores.push(dadosUsuario.id);
+  valores.push(idDecodificado);
 
   try {
-    await execute(
-      `UPDATE Cliente SET ${campos.join(", ")} WHERE id = ?`,
+    const [[tamanhoSenha] = []] = await execute(
+      `UPDATE Cliente SET ${campos.join(", ")} WHERE id = ? RETURNING LENGTH(senha)`,
       valores,
       CONFIG,
     );
 
     if (nome) dadosUsuario.nome = nome;
     if (email) dadosUsuario.email = email;
+
+    const novoTamanho = Number(tamanhoSenha);
+    if (Number.isFinite(novoTamanho) && novoTamanho >= 0) {
+      dadosUsuario.tamanhoSenha = novoTamanho;
+    }
+
     localStorage.setItem("usuarioLogado", JSON.stringify(dadosUsuario));
 
     form.reset();
@@ -106,7 +114,10 @@ function exibirDados() {
   if (!dadosUsuario) return;
   inputName.placeholder = dadosUsuario.nome;
   inputEmail.placeholder = dadosUsuario.email;
-  inputSenha.placeholder = "•".repeat(dadosUsuario.senha.length);
+
+  const qtdBolinhas = dadosUsuario.tamanhoSenha;
+
+  inputSenha.placeholder = "•".repeat(qtdBolinhas);
 }
 
 exibirDados();

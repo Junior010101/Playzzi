@@ -21,7 +21,7 @@ const updateCardContainer = async () => {
 
   try {
     data = await execute(
-      "SELECT titulo, descricao, dificuldade, area, imagem_url, mais_jogado, e_recente FROM Quiz ORDER BY criado_em ASC",
+      "SELECT id, titulo, descricao, dificuldade, area, imagem_url, mais_jogado, e_recente FROM Quiz ORDER BY criado_em ASC",
       [],
       CONFIG,
     );
@@ -64,7 +64,7 @@ const renderCards = (filtro) => {
     let newContainerData = [];
 
     containerData.forEach((card) => {
-      const area = String(card[3] || "").toUpperCase();
+      const area = String(card[4] || "").toUpperCase();
 
       if (filtroAtivo.toUpperCase() === area) {
         newContainerData.push(card);
@@ -81,6 +81,7 @@ const renderCards = (filtro) => {
 
   containerData.forEach((card) => {
     const [
+      id,
       titulo,
       descricao,
       dificuldade,
@@ -135,7 +136,7 @@ const renderCards = (filtro) => {
     });
 
     const a = document.createElement("a");
-    a.href = "#";
+    a.href = `quiz.html?q=${encodeURIComponent(encodeId(id))}`;
     a.textContent = "Jogar";
     a.classList.add("button", "button--primary", "quiz-card__btn");
 
