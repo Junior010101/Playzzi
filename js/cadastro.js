@@ -1,27 +1,5 @@
 const formulario = document.getElementById("cadastroForm");
 
-function validarUsuario(nome, senha) {
-  if (!nome || nome.length < 4 || nome.length > 255) {
-    window.alert("O nome deve ter entre 4 e 255 caracteres.");
-    return false;
-  }
-  if (!senha || senha.length < 8 || senha.length > 255) {
-    window.alert("A senha deve ser maior que 8 e menor que 30 caracteres.");
-    return false;
-  }
-
-  return true;
-}
-
-function validarSenhas(senha, confirmarSenha) {
-  if (confirmarSenha !== senha) {
-    window.alert("As senhas não coincidem.");
-    return false;
-  }
-
-  return true;
-}
-
 formulario.addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -31,7 +9,11 @@ formulario.addEventListener("submit", async function (e) {
   const senha = dados.senha || "";
   const confirmarSenha = dados.confirmarSenha || "";
 
-  if (!validarUsuario(nomeLimpo, emailLimpo, senha)) {
+  if (!validarNomeUsuario(nomeLimpo)) {
+    return;
+  }
+
+  if (!validarSenhaUsuario(senha)) {
     return;
   }
 
@@ -47,12 +29,12 @@ formulario.addEventListener("submit", async function (e) {
     );
   } catch (error) {
     console.error(error);
-    const msg = String(error?.message || "");
-    if (msg.includes("UNIQUE")) {
-      window.alert("Este e-mail já está cadastrado.");
-    } else {
-      window.alert("Erro ao conectar com o banco de dados. Tente novamente.");
+
+    if (!validarEmail(error)) {
+      return;
     }
+
+    window.alert("Erro ao conectar com o banco de dados. Tente novamente.");
     return;
   }
 

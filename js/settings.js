@@ -1,6 +1,11 @@
+const dadosUsuario = JSON.parse(
+  localStorage.getItem("usuarioLogado") || "null",
+);
+
 const form = document.getElementById("form-usuario");
 const inputName = document.getElementById("username");
 const inputEmail = document.getElementById("email");
+const inputSenha = document.getElementById("password");
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".settings-form__toggle-btn").forEach((btn) => {
@@ -31,47 +36,77 @@ document.addEventListener("DOMContentLoaded", () => {
 form.addEventListener("submit", async function (evento) {
   evento.preventDefault();
   const dados = Object.fromEntries(new FormData(form).entries());
-  const dadosUsuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+  const nome = dados.nome?.trim();
+  const email = dados.email?.trim();
+  const senha = dados.senha;
+
   let campos = [];
   let valores = [];
 
-  if (dados.nome) {
+  if (nome) {
+    if (!validarNomeUsuario(nome)) {
+      return;
+    }
+
     campos.push("nome = ?");
-    valores.push(dados.nome);
+    valores.push(nome);
   }
 
-  if (dados.email) {
+  if (email) {
     campos.push("email = ?");
-    valores.push(dados.email);
+    valores.push(email);
   }
 
-  if (dados.senha) {
+  if (senha) {
+    if (!validarSenhaUsuario(senha)) {
+      return;
+    }
+
     campos.push("senha = ?");
     valores.push(senha);
   }
 
-  valores.push(dadosUsuario.id);
-
-  if (valores.length <= 0) {
+  if (campos.length === 0) {
     window.alert("Sem dados para alterar.");
     return;
   }
 
+  if (!dadosUsuario?.id) {
+    window.alert("Usuário não identificado.");
+    return;
+  }
+
+  valores.push(dadosUsuario.id);
+
   try {
     await execute(
-      `UPDATE Cliente SET ${campos.join(" , ")} WHERE id= ? ; `,
+      `UPDATE Cliente SET ${campos.join(", ")} WHERE id = ?`,
       valores,
       CONFIG,
     );
+
+    if (nome) dadosUsuario.nome = nome;
+    if (email) dadosUsuario.email = email;
+    localStorage.setItem("usuarioLogado", JSON.stringify(dadosUsuario));
+
+    form.reset();
+    exibirDados();
   } catch (error) {
-    console.log(error);
+    if (!validarEmail(error)) {
+      return;
+    }
+
+    console.error("Erro ao atualizar usuário:", error);
+    window.alert("Erro ao conectar com o banco de dados. Tente novamente.");
   }
 });
 
 function exibirDados() {
-  const dados = JSON.parse(localStorage.getItem("usuarioLogado"));
-  inputName.placeholder = dados.nome;
-  inputEmail.placeholder = dados.email;
+  if (!dadosUsuario) return;
+  inputName.placeholder = dadosUsuario.nome;
+  inputEmail.placeholder = dadosUsuario.email;
+  inputSenha.placeholder = "•".repeat(dadosUsuario.senha.length);
 }
 
 exibirDados();
