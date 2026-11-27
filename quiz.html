@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz: /// – Playzzi</title>
+    <title>Quiz – Playzzi</title>
     <meta
       name="description"
       content="Playzzi - Site de Quiz educacional. Divirta-se. Questione. Evolua."
@@ -124,76 +124,40 @@
     <main class="main">
       <section class="quiz" aria-labelledby="quiz-title">
         <header class="quiz__header">
-          <hgroup class="quiz_info">
-            <h1 id="quiz-title" class="quiz__title">Quiz: ///</h1>
-            <p class="quiz__description">Descrição</p>
-          </hgroup>
+          <h1 id="quiz-title" class="quiz__title">Quiz:</h1>
 
           <div class="quiz__container">
-            <p class="quiz__issue">Pergunta 1 de 10</p>
-            <time class="quiz__counter" role="timer" aria-live="off"
+            <p id="quiz-issue" class="quiz__issue">Pergunta N de M</p>
+            <time
+              id="quiz-timer"
+              class="quiz__counter"
+              role="timer"
+              aria-live="off"
               >00:00</time
             >
           </div>
 
-          <progress class="quiz__progress-bar" value="30" max="100">
-            30%
-          </progress>
+          <progress
+            id="progress-bar"
+            class="quiz__progress-bar"
+            value="0"
+            max="100"
+          ></progress>
         </header>
 
-        <form action="#" class="quiz__body">
+        <form id="quiz" action="#" class="quiz__body">
           <fieldset class="quiz__fieldset">
-            <legend class="quiz__question">Enunciado da pergunta</legend>
-            <p class="quiz__feedback" role="status" aria-live="polite">aa</p>
+            <legend id="question-stem" class="quiz__question">...</legend>
+            <p class="quiz__feedback" role="status" aria-live="polite"></p>
 
-            <div class="quiz__options">
-              <label class="quiz__option" for="first-option">
-                <input
-                  class="quiz__marker"
-                  type="radio"
-                  name="option"
-                  id="first-option"
-                  value="1"
-                />
-                <span>Alternativa A</span>
-              </label>
-
-              <label class="quiz__option" for="second-option">
-                <input
-                  class="quiz__marker"
-                  type="radio"
-                  name="option"
-                  id="second-option"
-                  value="2"
-                />
-                <span>Alternativa B</span>
-              </label>
-
-              <label class="quiz__option" for="third-option">
-                <input
-                  class="quiz__marker"
-                  type="radio"
-                  name="option"
-                  id="third-option"
-                  value="3"
-                />
-                <span>Alternativa C</span>
-              </label>
-
-              <label class="quiz__option" for="fourth-option">
-                <input
-                  class="quiz__marker"
-                  type="radio"
-                  name="option"
-                  id="fourth-option"
-                  value="4"
-                />
-                <span>Alternativa D</span>
-              </label>
-            </div>
+            <div class="quiz__options"></div>
           </fieldset>
 
-          <button type="submit" class="button button--primary quiz__button">
+          <button
+            id="quiz-button"
+            type="submit"
+            class="button button--primary quiz__button"
+          >
             Responder
           </button>
         </form>
