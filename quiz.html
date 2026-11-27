@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz: /// – Playzzi</title>
+    <meta
+      name="description"
+      content="Playzzi - Site de Quiz educacional. Divirta-se. Questione. Evolua."
+    />
+    <meta name="theme-color" content="#375577" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link
+      rel="shortcut icon"
+      href="favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/ComicNeue-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components/button.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/components/sidebar.css" />
+    <link rel="stylesheet" href="./css/pages/quiz/quiz.css" />
+  </head>
+  <body>
+    <!-- Barra de Navegação (Sidebar no desktop / Barra inferior no mobile) -->
+    <aside class="sidebar" aria-label="Navegação secundária">
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item">
+            <a
+              href="#"
+              onclick="navigateTo('home.html')"
+              class="sidebar__link sidebar__link--active"
+              title="Explorar"
+              aria-label="Explorar"
+            >
+              <img
+                src="./assets/icons/bulsola.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a
+              href="#"
+              onclick="navigateTo('ranking.html')"
+              class="sidebar__link"
+              title="Classificação"
+              aria-label="Classificação"
+            >
+              <img
+                src="./assets/icons/trofeu.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--bottom">
+            <a
+              href="#"
+              onclick="navigateTo('settings.html')"
+              class="sidebar__link"
+              title="Configurações"
+              aria-label="Configurações"
+            >
+              <img
+                src="./assets/icons/config.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Cabeçalho -->
+    <header class="header header--home">
+      <a
+        class="header__icon"
+        href="#"
+        onclick="navigateTo('home.html')"
+        title="Voltar ao início"
+      >
+        <img
+          class="header__icon-image"
+          src="./assets/images/Logotipo.svg"
+          alt="Logotipo do Playzzi"
+          loading="eager"
+          fetchpriority="high"
+          width="116"
+          height="80"
+        />
+      </a>
+    </header>
+    <main class="main">
+      <section class="quiz" aria-labelledby="quiz-title">
+        <header class="quiz__header">
+          <hgroup class="quiz_info">
+            <h1 id="quiz-title" class="quiz__title">Quiz: ///</h1>
+            <p class="quiz__description">Descrição</p>
+          </hgroup>
+
+          <div class="quiz__container">
+            <p class="quiz__issue">Pergunta 1 de 10</p>
+            <time class="quiz__counter" role="timer" aria-live="off"
+              >00:00</time
+            >
+          </div>
+
+          <progress class="quiz__progress-bar" value="30" max="100">
+            30%
+          </progress>
+        </header>
+
+        <form action="#" class="quiz__body">
+          <fieldset class="quiz__fieldset">
+            <legend class="quiz__question">Enunciado da pergunta</legend>
+            <p class="quiz__feedback" role="status" aria-live="polite">aa</p>
+
+            <div class="quiz__options">
+              <label class="quiz__option" for="first-option">
+                <input
+                  class="quiz__marker"
+                  type="radio"
+                  name="option"
+                  id="first-option"
+                  value="1"
+                />
+                <span>Alternativa A</span>
+              </label>
+
+              <label class="quiz__option" for="second-option">
+                <input
+                  class="quiz__marker"
+                  type="radio"
+                  name="option"
+                  id="second-option"
+                  value="2"
+                />
+                <span>Alternativa B</span>
+              </label>
+
+              <label class="quiz__option" for="third-option">
+                <input
+                  class="quiz__marker"
+                  type="radio"
+                  name="option"
+                  id="third-option"
+                  value="3"
+                />
+                <span>Alternativa C</span>
+              </label>
+
+              <label class="quiz__option" for="fourth-option">
+                <input
+                  class="quiz__marker"
+                  type="radio"
+                  name="option"
+                  id="fourth-option"
+                  value="4"
+                />
+                <span>Alternativa D</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="button button--primary quiz__button">
+            Responder
+          </button>
+        </form>
+      </section>
+    </main>
+    <script defer src="./client/config.js"></script>
+    <script defer src="./client/database.js"></script>
+    <script defer src="./js/idCodec.js"></script>
+    <script defer src="./js/quiz.js"></script>
+  </body>
+</html>

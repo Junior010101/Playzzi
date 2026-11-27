@@ -37,6 +37,7 @@
 .button:active {
   border-style: inset;
   box-shadow: none;
+  transform: translateY(3px);
 }
 .button:hover {
   background-color: var(--button-background-hover);
@@ -47,7 +48,7 @@
   --button-shadow-color: var(--laranja-fundo);
   --button-background-color: var(--laranja-primario);
   --button-text-color: var(--branco);
-  --button-border-color: var(--laranja-fundo);
+  --button-border-color: var(--laranja-primario);
   --button-background-hover: var(--laranja-hover);
 }
 

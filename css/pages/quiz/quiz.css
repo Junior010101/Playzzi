@@ -1,0 +1,231 @@
+/* 
+ * Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+ * - Usar classes CSS para toda e qualquer estilização.
+ * - Usar block__element para elementos filhos do componente principal.
+ * - Usar block--modifier (ou block__element--modifier) para variações. 
+ */
+/* Block */
+.main {
+  background-color: var(--cinza-bg-home);
+  min-height: calc(100vh - 100px);
+  padding: 12px 24px 0px 104px;
+}
+
+/* Element */
+.quiz__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz__title {
+  color: var(--dark-blue);
+}
+
+.quiz__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: 4px;
+}
+
+.quiz__issue {
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.quiz__counter {
+  font-weight: 700;
+  color: var(--laranja-primario);
+}
+
+.quiz__progress-bar {
+  width: auto;
+  height: 10px;
+  pointer-events: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: #e5e7eb;
+}
+/* Firefox */
+.quiz__progress-bar::-moz-progress-bar {
+  background-color: var(--laranja-primario);
+  border-radius: 999px;
+}
+
+/* Chrome, Edge, Opera, Safari */
+.quiz__progress-bar::-webkit-progress-bar {
+  background-color: #e5e7eb;
+  border-radius: 999px;
+}
+
+.quiz__progress-bar::-webkit-progress-value {
+  background-color: var(--laranja-primario);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.quiz__body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 12px;
+  background-color: var(--branco);
+  border-radius: 18px;
+  padding: 28px 40px 12px 40px;
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.quiz__body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background-image: radial-gradient(
+    circle at 12px 0px,
+    #f2f0f0 7px,
+    transparent 7.5px
+  );
+  background-size: 24px 12px;
+  background-repeat: repeat-x;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.quiz__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+}
+
+.quiz__question {
+  display: block;
+  width: 100%;
+  padding: 0;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--dark-blue);
+  font-size: var(--fs-h2);
+  font-family: var(--font-titles);
+}
+
+.quiz__feedback {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.quiz__options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.quiz__option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid #d9dee5;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Esconde o radio nativo mantendo-o acessível no fluxo/teclado */
+.quiz__radio {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Marcador padrão (círculo neutro antes de responder) */
+.quiz__marker {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #9aa5b4;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Foco visível ao navegar com Tab */
+.quiz__option:has(.quiz__radio:focus-visible) {
+  outline: 2px solid var(--azul-escuro, #2c4764);
+  outline-offset: 2px;
+}
+
+/* Estado 1: Correto (verde) */
+.quiz__option.is-correct {
+  border-color: #2e7d32;
+  background-color: #eef7ef;
+}
+
+.quiz__option.is-correct input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background: url("../../../assets/icons/check.svg") center / contain no-repeat;
+}
+
+/* Estado 2: Pendente / atenção (amarelo) */
+.quiz__option.is-pending {
+  border-color: #f4b429;
+  background-color: #fcf9ed;
+}
+
+.quiz__option.is-pending input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background: url("../../../assets/icons/hourglass.svg") center / contain
+    no-repeat;
+}
+
+/* Estado 3: Errado (vermelho) */
+.quiz__option.is-wrong {
+  border-color: #e5484d;
+  background-color: #fdf1f1;
+}
+
+.quiz__option.is-wrong input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background: url("../../../assets/icons/error.svg") center / contain no-repeat;
+}
+
+.quiz__button {
+  width: 220px;
+  margin-left: auto;
+}
+
+/* Modifier */
+
+/* Media query */
+@media screen and (min-width: 820px) {
+}
