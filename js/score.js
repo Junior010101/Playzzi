@@ -15,9 +15,9 @@ const cameFromQuiz = () => {
   }
 };
 
-const fetchResults = async () => {
+const fetchResults = async (quizId) => {
   try {
-    const data = await execute("SELECT * FROM vw_resultado", [], CONFIG);
+    const data = await execute("SELECT * FROM vw_resultado WHERE quiz_id = ?", [quizId], CONFIG);
     return data;
   } catch (e) {
     console.error(e);
@@ -115,7 +115,7 @@ const renderScore = async () => {
     return;
   }
 
-  const results = await fetchResults();
+  const results = await fetchResults(quizId);
 
   renderRanking(results, userId);
 
