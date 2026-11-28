@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz – Score - Playzzi</title>
+    <meta
+      name="description"
+      content="Playzzi - Site de Quiz educacional. Divirta-se. Questione. Evolua."
+    />
+    <meta name="theme-color" content="#375577" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+    <link
+      rel="shortcut icon"
+      href="favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/ComicNeue-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/components/button.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/components/sidebar.css" />
+    <link rel="stylesheet" href="./css/pages/score/score.css" />
+  </head>
+  <body>
+    <!-- Barra de Navegação (Sidebar no desktop / Barra inferior no mobile) -->
+    <aside class="sidebar" aria-label="Navegação secundária">
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item">
+            <a
+              href="home.html"
+              class="sidebar__link sidebar__link--active"
+              title="Explorar"
+              aria-label="Explorar"
+            >
+              <img
+                src="./assets/icons/bulsola.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a
+              href="ranking.html"
+              class="sidebar__link"
+              title="Classificação"
+              aria-label="Classificação"
+            >
+              <img
+                src="./assets/icons/trofeu.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--bottom">
+            <a
+              href="settings.html"
+              class="sidebar__link"
+              title="Configurações"
+              aria-label="Configurações"
+            >
+              <img
+                src="./assets/icons/config.svg"
+                alt=""
+                aria-hidden="true"
+                class="sidebar__icon"
+                width="24"
+                height="24"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Cabeçalho -->
+    <header class="header header--home">
+      <a class="header__icon" href="home.html" title="Voltar ao início">
+        <img
+          class="header__icon-image"
+          src="./assets/images/Logotipo.svg"
+          alt="Logotipo do Playzzi"
+          loading="eager"
+          fetchpriority="high"
+          width="116"
+          height="80"
+        />
+      </a>
+    </header>
+    <main class="main">
+      <section class="quiz-result" aria-labelledby="quiz-result-title">
+        <h1 id="quiz-result-title" class="quiz-result__title">
+          Resultado do Quiz
+        </h1>
+
+        <div class="quiz-result__panel">
+          <dl class="quiz-result__meta">
+            <div class="quiz-result__meta-item quiz-result__meta-item--player">
+              <dt class="quiz-result__label">Jogador</dt>
+              <dd id="player" class="quiz-result__value" data-result="player">
+                ...
+              </dd>
+            </div>
+
+            <div class="quiz-result__meta-item quiz-result__meta-item--quiz">
+              <dt class="quiz-result__label">Quiz</dt>
+              <dd id="quiz" class="quiz-result__value" data-result="quiz">
+                ...
+              </dd>
+            </div>
+
+            <div
+              class="quiz-result__meta-item quiz-result__meta-item--category"
+            >
+              <dt class="quiz-result__label">Categoria</dt>
+              <dd
+                id="categoria"
+                class="quiz-result__value"
+                data-result="category"
+              >
+                ...
+              </dd>
+            </div>
+          </dl>
+
+          <ul class="quiz-result__metrics" aria-label="Desempenho no quiz">
+            <li class="quiz-result__metric quiz-result__metric--hits">
+              <span class="quiz-result__metric-label">Acertos</span>
+              <strong
+                id="hits"
+                class="quiz-result__metric-value"
+                data-result="hits"
+                >0</strong
+              >
+            </li>
+
+            <li class="quiz-result__metric quiz-result__metric--errors">
+              <span class="quiz-result__metric-label">Erros</span>
+              <strong
+                id="errors"
+                class="quiz-result__metric-value"
+                data-result="errors"
+                >0</strong
+              >
+            </li>
+
+            <li class="quiz-result__metric quiz-result__metric--points">
+              <span class="quiz-result__metric-label">Pontuação</span>
+              <strong
+                id="points"
+                class="quiz-result__metric-value"
+                data-result="points"
+                >0</strong
+              >
+            </li>
+
+            <li class="quiz-result__metric quiz-result__metric--percent">
+              <span class="quiz-result__metric-label">Percentual</span>
+              <strong
+                id="percent"
+                class="quiz-result__metric-value"
+                data-result="percent"
+                >0%</strong
+              >
+            </li>
+          </ul>
+
+          <div class="quiz-result__actions">
+            <a
+              onclick="navigateTo('quiz.html')"
+              class="button button--primary quiz-result__button"
+              href="#"
+              >Jogar Novamente</a
+            >
+            <a
+              onclick="navigateTo('home.html')"
+              class="button button--primary quiz-result__button"
+              href="#"
+              >Voltar à Inicial</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="ranking" aria-labelledby="ranking-title">
+        <h2 id="ranking-title" class="ranking__title">Ranking Geral</h2>
+
+        <ol class="ranking__list" data-ranking-list></ol>
+
+        <p class="ranking__footer">Jogue mais para subir no ranking!</p>
+      </section>
+    </main>
+    <script defer src="./client/config.js"></script>
+    <script defer src="./client/database.js"></script>
+    <script defer src="./js/idCodec.js"></script>
+    <script defer src="./js/score.js"></script>
+  </body>
+</html>

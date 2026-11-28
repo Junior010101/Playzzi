@@ -1,0 +1,284 @@
+/* 
+- Estrutura BEM (Block, Element, Modifier) aplicada ao CSS:
+- - Usar classes CSS para toda e qualquer estilização.
+- - Usar block__element para elementos filhos do componente principal.
+- - Usar block--modifier (ou block__element--modifier) para variações. 
+ */
+/* Block */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--cinza-bg-home);
+  min-height: calc(100vh - 100px);
+  padding: 24px 12px 0px 12px;
+}
+
+.quiz-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 420px;
+  max-width: 520px;
+}
+
+.ranking {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  flex: 0 1 400px;
+  max-width: 420px;
+  max-height: calc(100vh - 140px);
+  width: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 36px 28px 24px;
+  box-sizing: border-box;
+}
+
+/* Element */
+.quiz-result__title {
+  color: var(--dark-blue);
+  margin-bottom: 12px;
+}
+
+.quiz-result__panel {
+  background-color: #f9f9f9;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding-inline: 36px;
+  padding-block: 22px;
+  max-width: 520px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.quiz-result__meta {
+  margin: 0;
+}
+
+.quiz-result__label {
+  color: #6b7280;
+}
+
+.quiz-result__metric-label {
+  color: #6b7280;
+}
+
+.quiz-result__value {
+  color: #375577;
+  margin: 0;
+}
+
+.quiz-result__meta-item {
+  padding-block: 6px;
+}
+
+.quiz-result__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 24px;
+  list-style: none;
+  margin: 0;
+  padding: 18px 0 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.quiz-result__metric {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-result__metric-value {
+  color: #375577;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.quiz-result__actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+
+.quiz-result__button {
+  width: 100%;
+}
+
+.ranking__title {
+  color: var(--dark-blue, #375577);
+  font-size: var(--fs-h2, 1.5rem);
+  font-family: var(--font-titles, inherit);
+  margin: 0 0 24px;
+}
+
+.ranking__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.ranking__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+.ranking__position {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  color: #6b7280;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.ranking__player {
+  color: #375577;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ranking__score {
+  color: #375577;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ranking__unit {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85em;
+}
+
+.ranking__footer {
+  color: #6b7280;
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 28px 0 0;
+}
+
+/* Modifier */
+.quiz-result__meta-item--player {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+}
+
+.quiz-result__meta-item--player .quiz-result__value {
+  font-size: var(--fs-h2);
+  font-family: var(--font-titles);
+}
+
+.quiz-result__meta-item--quiz {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+}
+
+.quiz-result__meta-item--category {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+}
+
+.quiz-result__metric--errors {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.quiz-result__metric--errors .quiz-result__metric-value {
+  color: #f97316;
+}
+
+.quiz-result__metric--hits .quiz-result__metric-value {
+  color: #f97316;
+}
+
+.quiz-result__metric--percent {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.ranking__item--first .ranking__position {
+  background-color: #fbbf24;
+  color: #ffffff;
+}
+
+.ranking__item--second .ranking__position {
+  background-color: #93c5fd;
+  color: #ffffff;
+}
+
+.ranking__item--third .ranking__position {
+  background-color: #f97316;
+  color: #ffffff;
+}
+
+.ranking__item--current {
+  background-color: #fef3c7;
+  border-color: #f97316;
+}
+
+.ranking__item--current .ranking__player,
+.ranking__item--current .ranking__score {
+  color: #ea580c;
+}
+
+/* Media query */
+@media screen and (max-width: 640px) {
+  .quiz-result__panel {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .quiz-result__actions {
+    flex-direction: column;
+  }
+
+  .ranking {
+    padding: 24px 18px 20px;
+    border-radius: 18px;
+    max-height: 420px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .main {
+    flex-direction: row;
+    padding: 12px 24px 0px 104px;
+  }
+}

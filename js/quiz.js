@@ -41,7 +41,9 @@ const stopTimer = () => {
 const aplicarTempoEsgotado = (questaoId) => {
   stopTimer();
 
+  const feedback = document.getElementById("feedback");
   const timerEl = document.getElementById("quiz-timer");
+
   if (timerEl) timerEl.textContent = formatarTimer(0);
 
   form.querySelectorAll('input[name="option"]').forEach((input) => {
@@ -57,6 +59,7 @@ const aplicarTempoEsgotado = (questaoId) => {
   const jaTemResposta = Boolean(quizState?.respostas?.[questaoId]);
   if (!jaTemResposta && button) {
     const totalQuestoes = getIssues(quizData).length;
+    feedback.style.display = "block";
     button.textContent =
       quizState.questaoAtual >= totalQuestoes ? "Finalizar" : "Próxima questão";
   }
@@ -244,7 +247,7 @@ const initQuiz = async () => {
   const quizId = rawQ ? decodeId(rawQ) : null;
 
   if (rawQ !== null && !quizId) {
-    window.location.href = "home.html";
+    window.location.href = "403.html";
     return;
   }
 
@@ -274,7 +277,7 @@ const initQuiz = async () => {
   }
 
   if (!quizId) {
-    window.location.href = "home.html";
+    window.location.href = "403.html";
     return;
   }
 
@@ -308,6 +311,7 @@ const renderQuiz = (questao, totalQuestoes) => {
   const tittle = document.getElementById("quiz-title");
   const issue = document.getElementById("quiz-issue");
   const prompt = document.getElementById("question-stem");
+  const feedback = document.getElementById("feedback");
 
   const renderAlternativas = (alternativas, questaoId) => {
     const container = document.querySelector(".quiz__options");
@@ -340,6 +344,7 @@ const renderQuiz = (questao, totalQuestoes) => {
       input.id = inputId;
       input.value = String(alt.numero ?? index + 1);
       input.dataset.correta = String(Boolean(alt.correta));
+      input.required = true;
 
       const span = document.createElement("span");
       span.textContent = alt.texto;
@@ -368,6 +373,8 @@ const renderQuiz = (questao, totalQuestoes) => {
 
   prompt.textContent = questao.enunciado;
 
+  feedback.textContent = questao.explicacao;
+
   renderAlternativas(questao.alternativas || [], questao.questaoId);
 };
 
@@ -378,6 +385,7 @@ const renderQuiz = (questao, totalQuestoes) => {
  * @returns {void}
  */
 const applyState = (id, respostaMarcada) => {
+  const feedback = document.getElementById("feedback");
   const inputs = Array.from(form.querySelectorAll('input[name="option"]'));
   const totalQuestoes = getIssues(quizData).length;
   const ehUltima = quizState?.questaoAtual >= totalQuestoes;
@@ -398,7 +406,10 @@ const applyState = (id, respostaMarcada) => {
       aplicarTempoEsgotado(id);
       return;
     }
-    if (button) button.textContent = "Responder";
+    if (button) {
+      feedback.style.display = "none";
+      button.textContent = "Responder";
+    }
     return;
   }
 
@@ -419,6 +430,7 @@ const applyState = (id, respostaMarcada) => {
   });
 
   if (button) {
+    feedback.style.display = "block";
     button.textContent = ehUltima ? "Finalizar" : "Próxima questão";
   }
 };
@@ -532,7 +544,8 @@ const finishQuiz = async (client_id, quiz_id, respostas, tempos) => {
     });
 
     clearQuizCache();
-    window.location.href = "score.html";
+
+    window.location.href = `score.html?q=${encodeURIComponent(encodeId(quiz))}`;
 
     return {
       cliente_id: cliente,

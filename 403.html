@@ -52,7 +52,17 @@
             aria-hidden="true"
           />
         </picture>
-        <a href="index.html" class="button main__back-btn">Voltar</a>
+        <a
+          href="#"
+          onclick="
+            localStorage.getItem('usuarioLogado')
+              ? (window.location.href = 'home.html')
+              : (window.location.href = 'index.html');
+            return false;
+          "
+          class="button main__back-btn"
+          >Voltar</a
+        >
         <hgroup class="main__warning">
           <h1 class="main__code" data-text="403">403</h1>
           <h2 class="main__type">Forbidden</h2>
